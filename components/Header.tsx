@@ -3,7 +3,7 @@ export default function Header() {
     <header className="bg-white text-black">
 
       <div className="bg-pink-400 text-center text-white text-sm py-2">
-        Quyền lợi dành cho khách hàng mới
+        Quyền lợi dành cho khách hàng mớiiiii
         <span className="font-semibold ml-2">ĐĂNG KÝ NGAY</span>
       </div>
 
