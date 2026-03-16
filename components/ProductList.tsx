@@ -23,7 +23,7 @@ const products = [
 
 export default function ProductList() {
   return (
-    <section className="px-16 py-20">
+    <section className="px-16 py-20 bg-white text-black">
 
       <h2 className="text-center text-xl font-semibold mb-10">
         KIẾN TẠO KÝ ỨC
