@@ -1,5 +1,10 @@
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
+
 export default function LoginPage() {
   return (
+    <>
+    <Header />
     <main className="bg-gray-100 min-h-screen flex items-center justify-center">
       <div className="w-[500px] text-center">
         <h1 className="text-3xl font-bold mb-2">TÀI KHOẢN CỦA TÔI</h1>
@@ -63,5 +68,7 @@ export default function LoginPage() {
         </div>
       </div>
     </main>
+    <Footer />
+    </>
   )
 }
