@@ -74,7 +74,7 @@ export default function Footer() {
           </h4>
 
           <ul className="space-y-2 text-sm  text-gray-500">
-            <li>cửa hàng toàn quốc</li>
+            <li>Cửa hàng toàn quốc</li>
           </ul>
         </div>
 

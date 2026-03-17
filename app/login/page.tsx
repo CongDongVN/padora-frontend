@@ -34,14 +34,14 @@ export default function LoginPage() {
             <input
               type="email"
               placeholder="Email *"
-              className="border-2 border-gray-300  p-3 outline-none placeholder:text-gray-500"
+              className="border-2 border-gray-300  p-3 outline-none text-black placeholder:text-gray-500"
             />
 
             <div className="relative">
               <input
                 type="password"
                 placeholder="Mật khẩu *"
-                className="border-2 border-gray-300  p-3 w-full outline-none placeholder:text-gray-500"
+                className="border-2 border-gray-300  p-3 w-full outline-none text-black placeholder:text-gray-500"
               />
 
               <span className="absolute right-3 top-3 cursor-pointer text-gray-600">
