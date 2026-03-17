@@ -1,3 +1,5 @@
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
+
 export default function Footer() {
   return (
     <footer className="bg-gray-100 px-16 pt-16 pb-8">
@@ -22,7 +24,7 @@ export default function Footer() {
 
       <div className="pb-8 border-b border-gray-300 my-6"></div>
 
-      <div className="grid-cols-5 gap-10 flex justify-between pt-4 pb-8 border-b border-gray-300">
+      <div className="grid-cols-5 gap-10 flex justify-between px-16 pt-4 pb-8 border-b border-gray-300">
 
         <div>
           <h4 className="font-semibold mb-4  text-black ">Khám phá</h4>
@@ -90,10 +92,17 @@ export default function Footer() {
 
       </div>
 
-      <p className="text-left text-sm mt-8  text-gray-700">
+      <div className="mt-8 flex items-center justify-between px-16">
+
+      <p className="text-left text-sm text-gray-700">
         © Pandora Jewelry, LLC. All rights reserved.
       </p>
 
+        <div className="flex items-center gap-4 text-black text-lg">
+          <FaFacebookF/>
+          <FaInstagram/>
+        </div>
+      </div>
     </footer>
   )
 }
