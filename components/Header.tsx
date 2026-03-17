@@ -1,47 +1,77 @@
+"use client";
+
+import { FiSearch, FiHeart, FiMapPin, FiUser, FiShoppingBag } from "react-icons/fi";
+
 export default function Header() {
   return (
-    <header className="bg-white text-black">
+    <header className="w-full bg-white">
 
-      <div className="bg-pink-400 text-center text-white text-sm py-2">
-        Quyền lợi dành cho khách hàng mớiiiii
-        <span className="font-semibold ml-2">ĐĂNG KÝ NGAY</span>
+      {/* top banner */}
+      <div className="bg-[#ff93a0] text-center text-[13px] py-2 relative text-black">
+        Khắc thông điệp - Chạm cảm xúc
+        <span className="font-semibold ml-2 cursor-pointer">
+          KHÁM PHÁ NGAY
+        </span>
+
+        <span className="absolute right-8 top-0 bottom-0 flex items-center cursor-pointer">
+          ✕
+        </span>
       </div>
 
-      <div className="flex items-center justify-between px-10 py-5">
+      {/* main header */}
+      <div className="w-full px-16 flex items-center justify-between py-5">
 
-        <h1 className="text-3xl font-bold tracking-widest">
+        {/* logo */}
+        <div className="text-3xl font-bold tracking-widest text-black">
           PANDORA
-        </h1>
+        </div>
 
-        <nav className="hidden md:flex gap-8 text-sm font-medium">
-          <a>BỘ SƯU TẬP MỚI</a>
-          <a>TRANG SỨC</a>
-          <a>VÒNG TAY</a>
-          <a>CHARMS</a>
-          <a>DÂY CHUYỀN</a>
-          <a>HOA TAI</a>
-          <a>NHẪN</a>
-          <a>QUÀ TẶNG</a>
-        </nav>
+        {/* right */}
+        <div className="flex items-center gap-8">
 
-        <div className="flex gap-4">
-        <input
-  required
-  id="inputSearchAuto"
-  name="q"
-  type="text"
-  // maxLength="40"
-  // autocomplete="off"
-  placeholder="Bạn đang cần tìm gì?"
-  className="w-96 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-/>
-          <span>❤</span>
-          <span>👤</span>
-          <span>👜</span>
+          {/* search */}
+          <div className="flex items-center w-[240px] px-4 py-2 bg-white border border-gray-300 
+                          focus-within:bg-white focus-within:border-black transition">
+
+            <input
+              type="text"
+              placeholder="Bạn cần tìm gì?"
+              className="flex-1 outline-none bg-transparent text-[14px] font-semibold text-black placeholder-gray-500"
+            />
+
+            <FiSearch className="text-black text-lg" />
+          </div>
+
+          {/* icons */}
+          <div className="flex items-center gap-6 text-xl text-black">
+            <FiHeart className="cursor-pointer" />
+            <FiMapPin className="cursor-pointer" />
+            <FiUser className="cursor-pointer" />
+            <FiShoppingBag className="cursor-pointer" />
+          </div>
+
         </div>
 
       </div>
 
+      {/* pink line */}
+      <div className="border-b-[4px] border-[#ff93a0]"></div>
+
+      {/* menu */}
+      <nav className="w-full px-16 flex gap-14 py-4 text-[13px] font-semibold text-black tracking-wide">
+        <span>BỘ SƯU TẬP MỚI</span>
+        <span>TRANG SỨC</span>
+        <span>VÒNG TAY</span>
+        <span>CHARMS</span>
+        <span>DÂY CHUYỀN</span>
+        <span>HOA TAI</span>
+        <span>NHẪN</span>
+        <span>QUÀ TẶNG</span>
+        <span className="text-[#ff93a0]">CÂU CHUYỆN CỦA BẠN</span>
+      </nav>
+      
+      <div className="w-full h-[1px] bg-gray-300"></div>
+
     </header>
-  )
+  );
 }
