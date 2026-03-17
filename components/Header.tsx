@@ -43,12 +43,33 @@ export default function Header() {
           </div>
 
           {/* icons */}
-          <div className="flex items-center gap-6 text-xl text-black">
-            <FiHeart className="cursor-pointer" />
-            <FiMapPin className="cursor-pointer" />
-            <FiUser className="cursor-pointer" />
-            <FiShoppingBag className="cursor-pointer" />
-          </div>
+            <div className="flex items-center gap-6 text-xl text-black">
+
+              {/* Heart */}
+              <div className="group flex flex-col items-center cursor-pointer">
+                <FiHeart className="transition group-hover:text-[#ff93a0]" />
+                <span className="w-5 h-[2px] bg-transparent group-hover:bg-[#ff93a0] mt-1 transition"></span>
+              </div>
+
+              {/* Location */}
+              <div className="group flex flex-col items-center cursor-pointer">
+                <FiMapPin className="transition group-hover:text-[#ff93a0]" />
+                <span className="w-5 h-[2px] bg-transparent group-hover:bg-[#ff93a0] mt-1 transition"></span>
+              </div>
+
+              {/* User */}
+              <div className="group flex flex-col items-center cursor-pointer">
+                <FiUser className="transition group-hover:text-[#ff93a0]" />
+                <span className="w-5 h-[2px] bg-transparent group-hover:bg-[#ff93a0] mt-1 transition"></span>
+              </div>
+
+              {/* Bag */}
+              <div className="group flex flex-col items-center cursor-pointer">
+                <FiShoppingBag className="transition group-hover:text-[#ff93a0]" />
+                <span className="w-5 h-[2px] bg-transparent group-hover:bg-[#ff93a0] mt-1 transition"></span>
+              </div>
+
+</div>
 
         </div>
 

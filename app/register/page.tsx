@@ -103,7 +103,7 @@ export default function RegisterPage() {
               </div>
 
               {/* button */}
-              <button className="bg-black text-white py-3 font-semibold mt-2 hover:bg-gray-800 transition">
+              <button className="bg-black text-white py-3 mt-2 hover:bg-gray-800 transition">
                 ĐĂNG KÝ TÀI KHOẢN
               </button>
 
@@ -115,14 +115,14 @@ export default function RegisterPage() {
             </div>
 
             {/* google */}
-            <button className="flex items-center justify-center gap-3 w-full bg-[#f2b8c6] py-3 mb-4 font-semibold">
-              <FcGoogle size={22} />
+            <button className="flex items-center justify-center gap-3 w-full bg-[#f2b8c6] text-black py-3 mb-4  relative">
+              <FcGoogle size={22} className="absolute left-4" />
               ĐĂNG NHẬP GOOGLE
             </button>
 
             {/* facebook */}
-            <button className="flex items-center justify-center gap-3 w-full bg-[#2f6fdb] text-white py-3 font-semibold">
-              <FaFacebook size={20} />
+            <button className="flex items-center justify-center gap-3 w-full bg-[#2f6fdb] text-white py-3  relative">
+              <FaFacebook size={20} className="absolute left-4" />
               ĐĂNG NHẬP FACEBOOK
             </button>
 
