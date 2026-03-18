@@ -2,30 +2,36 @@ import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 
 export default function ProductDetail() {
-  return (
-    <>
+    const images = [
+    "/img/hoatai/test01.png",
+    "/img/hoatai/test02.png",
+    "/img/hoatai/test03.png",
+    "/img/hoatai/test02.png",
+    ];
+ return (
+  <>
     <Header />
     <div className="px-16 py-10 bg-white">
-      <div className="max-w-6xl mx-auto grid grid-cols-3 gap-10">
+      <div className="grid grid-cols-3 gap-10">
 
         {/* LEFT - IMAGE */}
-        <div className="grid grid-cols-2 gap-6">
-          <div className="bg-gray-200 p-6 flex items-center justify-center">
-            <img src="/sp1.png" alt="" className="w-40" />
+         <div className="col-span-2 grid grid-cols-2 gap-6">
+            {images.map((src, index) => (
+              <div
+                key={index}
+                className="bg-gray-200 aspect-square flex items-center justify-center overflow-hidden"
+              >
+                <img
+                  src={src}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
           </div>
-          <div className="bg-gray-200 p-6 flex items-center justify-center">
-            <img src="/sp1.png" alt="" className="w-40" />
-          </div>
-          <div className="bg-gray-200 p-6 flex items-center justify-center">
-            <img src="/sp2.png" alt="" className="w-full" />
-          </div>
-          <div className="bg-gray-200 p-6 flex items-center justify-center">
-            <img src="/sp2.png" alt="" className="w-full" />
-          </div>
-        </div>
+
 
         {/* RIGHT - INFO */}
-        <div>
+        <div className="col-span-1">
           <h1 className="text-2xl font-semibold text-black leading-snug">
             Charm Pandora Mạ Vàng 14K Tulip Hồng Phai, Khởi Đầu Nụ Tầm Xuân
           </h1>
@@ -40,7 +46,7 @@ export default function ProductDetail() {
               MUA NGAY
             </button>
 
-            <button className="w-full border border-black py-3">
+            <button className="w-full border border-black text-black py-3">
               THÊM VÀO GIỎ
             </button>
           </div>
@@ -82,6 +88,6 @@ export default function ProductDetail() {
       </div>
     </div>
     <Footer />
-    </>
-  );
+  </>
+ );
 }
