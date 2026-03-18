@@ -30,7 +30,7 @@ export default function Header() {
         <div className="flex items-center gap-8">
 
           {/* search */}
-          <div className="flex items-center w-[240px] px-4 py-2 bg-white border border-gray-300 
+          <div className="flex items-center w-60 px-4 py-2 bg-white border border-gray-300 
                           focus-within:bg-white focus-within:border-black transition">
 
             <input
@@ -48,25 +48,25 @@ export default function Header() {
               {/* Heart */}
               <div className="group flex flex-col items-center cursor-pointer">
                 <FiHeart className="transition group-hover:text-[#ff93a0]" />
-                <span className="w-5 h-[2px] bg-transparent group-hover:bg-[#ff93a0] mt-1 transition"></span>
+                <span className="w-5 h-0.5 bg-transparent group-hover:bg-[#ff93a0] mt-1 transition"></span>
               </div>
 
               {/* Location */}
               <div className="group flex flex-col items-center cursor-pointer">
                 <FiMapPin className="transition group-hover:text-[#ff93a0]" />
-                <span className="w-5 h-[2px] bg-transparent group-hover:bg-[#ff93a0] mt-1 transition"></span>
+                <span className="w-5 h-0.5 bg-transparent group-hover:bg-[#ff93a0] mt-1 transition"></span>
               </div>
 
               {/* User */}
               <div className="group flex flex-col items-center cursor-pointer">
                 <FiUser className="transition group-hover:text-[#ff93a0]" />
-                <span className="w-5 h-[2px] bg-transparent group-hover:bg-[#ff93a0] mt-1 transition"></span>
+                <span className="w-5 h-0.5 bg-transparent group-hover:bg-[#ff93a0] mt-1 transition"></span>
               </div>
 
               {/* Bag */}
               <div className="group flex flex-col items-center cursor-pointer">
                 <FiShoppingBag className="transition group-hover:text-[#ff93a0]" />
-                <span className="w-5 h-[2px] bg-transparent group-hover:bg-[#ff93a0] mt-1 transition"></span>
+                <span className="w-5 h-0.5 bg-transparent group-hover:bg-[#ff93a0] mt-1 transition"></span>
               </div>
 
 </div>
@@ -76,7 +76,7 @@ export default function Header() {
       </div>
 
       {/* pink line */}
-      <div className="border-b-[4px] border-[#ff93a0]"></div>
+      <div className="border-b-4 border-[#ff93a0]"></div>
 
       {/* menu */}
       <nav className="w-full px-16 flex gap-14 py-4 text-[13px] font-semibold text-black tracking-wide">
@@ -91,7 +91,7 @@ export default function Header() {
         <span className="text-[#ff93a0]">CÂU CHUYỆN CỦA BẠN</span>
       </nav>
       
-      <div className="w-full h-[1px] bg-gray-300"></div>
+      <div className="w-full h-px bg-gray-300"></div>
 
     </header>
   );
