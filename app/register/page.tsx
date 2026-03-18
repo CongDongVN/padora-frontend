@@ -2,21 +2,52 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { FcGoogle } from "react-icons/fc";
-import { FaFacebook,} from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const [from, setFrom] = useState({
+    fristName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    password: "",
+  });
+  const handleRegister = async () => {
+    try {
+      const res = await fetch("https://localhost:7221/api/Auth/register", {
+        method: "POST",
+        headers: {
+          "Content - Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: from.email,
+          password: from.password,
+          firstName: from.fristName,
+          lastName: from.lastName,
+          phone: from.phone,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        alert(data.message || "Đăng ký thất bại");
+        return;
+      }
+      alert("Đăng ký thành công");
+    } catch (error) {
+      console.error("Lỗi đăng ký:", error);
+      alert("Không kết nối được với backend");
+    }
+  };
   return (
     <>
       <Header />
 
       {/* nền trắng */}
       <div className="bg-white min-h-screen flex justify-center py-20">
-
         <div className="w-[520px]">
-
           {/* title */}
           <h1 className="text-3xl text-black font-bold text-center mb-2">
             TÀI KHOẢN CỦA TÔI
@@ -39,9 +70,7 @@ export default function RegisterPage() {
 
           {/* form box */}
           <div className="border border-gray-300 bg-white p-10">
-
             <div className="flex flex-col gap-5">
-
               {/* input */}
               <input
                 className="w-full px-4 py-3 bg-white border border-gray-300 
@@ -82,7 +111,7 @@ export default function RegisterPage() {
               <div
                 className="flex items-center px-4 py-3 bg-gray-100 border border-gray-300
                           focus-within:bg-white focus-within:border-black transition"
->
+              >
                 <input
                   type={showPassword ? "text" : "password"}
                   className="w-full outline-none bg-transparent text-black placeholder-gray-600"
@@ -106,13 +135,10 @@ export default function RegisterPage() {
               <button className="bg-black text-white py-3 mt-2 hover:bg-gray-800 transition">
                 ĐĂNG KÝ TÀI KHOẢN
               </button>
-
             </div>
 
             {/* divider */}
-            <div className="text-center my-6 text-gray-700">
-              Hoặc
-            </div>
+            <div className="text-center my-6 text-gray-700">Hoặc</div>
 
             {/* google */}
             <button className="flex items-center justify-center gap-3 w-full bg-[#f2b8c6] text-black py-3 mb-4  relative">
@@ -125,11 +151,8 @@ export default function RegisterPage() {
               <FaFacebook size={20} className="absolute left-4" />
               ĐĂNG NHẬP FACEBOOK
             </button>
-
           </div>
-
         </div>
-
       </div>
 
       <Footer />
