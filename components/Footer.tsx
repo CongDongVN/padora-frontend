@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -94,12 +94,12 @@ export default function Footer() {
 
       <div className="mt-8 flex items-center justify-between px-16">
 
-      <p className="text-left text-sm text-gray-700">
-        © Pandora Jewelry, LLC. All rights reserved.
-      </p>
+        <p className="text-left text-sm font-bold text-gray-900">
+          © Pandora Jewelry, LLC. All rights reserved.
+        </p>
 
         <div className="flex items-center gap-4 text-black text-lg">
-          <FaFacebookF/>
+          <FaFacebook/>
           <FaInstagram/>
         </div>
       </div>

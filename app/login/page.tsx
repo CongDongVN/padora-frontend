@@ -66,7 +66,7 @@ export default function LoginPage() {
               ĐĂNG NHẬP GOOGLE
             </button>
 
-            <button className="bg-blue-600 text-black py-3 flex items-center justify-center relative">
+            <button className="bg-blue-600 text-white py-3 flex items-center justify-center relative">
               <FaFacebook size={20} className="absolute left-4 text-white" />
               ĐĂNG NHẬP FACEBOOK
             </button>

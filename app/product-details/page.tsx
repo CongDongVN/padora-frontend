@@ -1,0 +1,87 @@
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
+
+export default function ProductDetail() {
+  return (
+    <>
+    <Header />
+    <div className="px-16 py-10 bg-white">
+      <div className="max-w-6xl mx-auto grid grid-cols-3 gap-10">
+
+        {/* LEFT - IMAGE */}
+        <div className="grid grid-cols-2 gap-6">
+          <div className="bg-gray-200 p-6 flex items-center justify-center">
+            <img src="/sp1.png" alt="" className="w-40" />
+          </div>
+          <div className="bg-gray-200 p-6 flex items-center justify-center">
+            <img src="/sp1.png" alt="" className="w-40" />
+          </div>
+          <div className="bg-gray-200 p-6 flex items-center justify-center">
+            <img src="/sp2.png" alt="" className="w-full" />
+          </div>
+          <div className="bg-gray-200 p-6 flex items-center justify-center">
+            <img src="/sp2.png" alt="" className="w-full" />
+          </div>
+        </div>
+
+        {/* RIGHT - INFO */}
+        <div>
+          <h1 className="text-2xl font-semibold text-black leading-snug">
+            Charm Pandora Mạ Vàng 14K Tulip Hồng Phai, Khởi Đầu Nụ Tầm Xuân
+          </h1>
+
+          <p className="text-xl mt-4 text-black font-medium">
+            2,590,000₫
+          </p>
+
+          {/* BUTTON */}
+          <div className="mt-6 space-y-4">
+            <button className="w-full bg-black text-white py-3">
+              MUA NGAY
+            </button>
+
+            <button className="w-full border border-black py-3">
+              THÊM VÀO GIỎ
+            </button>
+          </div>
+
+          {/* EXTRA */}
+          <div className="mt-4 text-sm text-gray-600 space-y-2">
+            <p>💖 Lưu vào danh mục yêu thích</p>
+            <p>🎁 Gói quà tặng <span className="underline cursor-pointer">Xem chi tiết</span></p>
+          </div>
+
+          {/* ƯU ĐÃI */}
+          <div className="mt-6 text-sm text-gray-700">
+            <p className="font-semibold mb-2">Ưu đãi cổng thanh toán</p>
+            <ul className="list-disc ml-5 space-y-1">
+              <li>Giảm 10% tặng bạn mới.</li>
+              <li>Giảm đến 50K cho đơn từ 3 triệu và 100K cho đơn từ 10 triệu.</li>
+              <li>Lưu ý: Không áp dụng cho BST mới</li>
+            </ul>
+          </div>
+
+          {/* CHI TIẾT */}
+          <div className="mt-8">
+            <h3 className="font-semibold text-black mb-3">
+              CHI TIẾT SẢN PHẨM
+            </h3>
+
+            <p className="text-sm text-gray-600 leading-relaxed">
+              Sản phẩm được thiết kế tinh xảo với phong cách hiện đại,
+              mang lại vẻ đẹp thanh lịch và sang trọng. Đây là lựa chọn
+              hoàn hảo cho những dịp đặc biệt hoặc làm quà tặng ý nghĩa.
+            </p>
+
+            <p className="text-sm text-gray-600 mt-4">
+              <span className="font-medium text-black">Mã sản phẩm:</span> 764352C01
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <Footer />
+    </>
+  );
+}
