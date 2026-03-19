@@ -1,5 +1,6 @@
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
+import { relatedProducts } from "@/data/products";
 
 export default function ProductDetail() {
   const images = [
@@ -51,13 +52,11 @@ export default function ProductDetail() {
               </button>
             </div>
 
-            {/* EXTRA */}
             <div className="mt-4 text-sm text-gray-600 space-y-2">
               <p>💖 Lưu vào danh mục yêu thích</p>
               <p>🎁 Gói quà tặng <span className="underline cursor-pointer">Xem chi tiết</span></p>
             </div>
 
-            {/* ƯU ĐÃI */}
             <div className="mt-6 text-sm text-gray-700">
               <p className="font-semibold mb-2">Ưu đãi cổng thanh toán</p>
               <ul className="list-disc ml-5 space-y-1">
@@ -90,33 +89,32 @@ export default function ProductDetail() {
 
       {/* RELATED PRODUCTS */}
       <div className="px-16 pb-16">
-        <h2 className="text-center text-lg font-semibold mb-8">
+        <h2 className="text-center text-lg pt-5 font-semibold mb-8">
           SẢN PHẨM CÙNG LOẠI
         </h2>
 
         <div className="flex gap-6 overflow-x-auto">
 
           {/* ITEM */}
-          {[1, 2, 3, 4].map((item, index) => (
+          {relatedProducts.map((item) => (
             <div
-              key={index}
+              key={item.id}
               className="min-w-[220px] cursor-pointer group"
             >
               {/* IMAGE */}
               <div className="bg-gray-200 aspect-square flex items-center justify-center overflow-hidden">
                 <img
-                  src="/img/hoatai/test01.png"
+                  src={item.image}
                   className="w-full h-full object-cover group-hover:scale-105 transition"
                 />
               </div>
 
-              {/* INFO */}
               <p className="text-sm mt-3 line-clamp-2">
-                Charm Bạc Pandora Trái Tim Đính Đá
+                {item.name}
               </p>
 
               <p className="text-sm font-medium mt-1">
-                2,190,000₫
+                {item.price}
               </p>
             </div>
           ))}
