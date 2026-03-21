@@ -34,14 +34,14 @@ export default function LoginPage() {
             <input
               type="email"
               placeholder="Email *"
-              className="border-2 border-gray-300  p-3 outline-none placeholder:text-gray-500"
+              className="border-2 border-gray-300  p-3 outline-none text-black placeholder:text-gray-500"
             />
 
             <div className="relative">
               <input
                 type="password"
                 placeholder="Mật khẩu *"
-                className="border-2 border-gray-300  p-3 w-full outline-none placeholder:text-gray-500"
+                className="border-2 border-gray-300  p-3 w-full outline-none text-black placeholder:text-gray-500"
               />
 
               <span className="absolute right-3 top-3 cursor-pointer text-gray-600">
@@ -66,7 +66,7 @@ export default function LoginPage() {
               ĐĂNG NHẬP GOOGLE
             </button>
 
-            <button className="bg-blue-600 text-black py-3 flex items-center justify-center relative">
+            <button className="bg-blue-600 text-white py-3 flex items-center justify-center relative">
               <FaFacebook size={20} className="absolute left-4 text-white" />
               ĐĂNG NHẬP FACEBOOK
             </button>
@@ -74,7 +74,7 @@ export default function LoginPage() {
         </div>
       </div>
     </main>
-    <Footer />
+    <Footer/>
     </>
   )
 }
