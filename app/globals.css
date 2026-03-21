@@ -35,3 +35,18 @@ body {
 .animate-slide {
   animation: slideBanner 60s infinite;
 }
+/* INPUT CHUẨN */
+.input-custom {
+  @apply w-full px-4 py-3 bg-white border border-gray-300 
+         text-black placeholder-gray-400
+         outline-none
+         focus:border-black focus:ring-1 focus:ring-black
+         transition duration-200;
+}
+
+/* INPUT PASSWORD */
+.input-password {
+  @apply flex items-center px-4 py-3 bg-white border border-gray-300
+         focus-within:border-black focus-within:ring-1 focus-within:ring-black
+         transition duration-200;
+}
