@@ -18,13 +18,13 @@ export default function LoginPage() {
         <div className="flex mb-6 border-b">
             <div className="w-1/2 pr-4">
                 <button className="w-full text-center pb-3 border-b-2 border-black font-medium text-black">
-                 ĐĂNG NHẬP
+                ĐĂNG NHẬP
                 </button>
             </div>
 
             <div className="w-1/2 pl-4">
                 <button className="w-full text-center pb-3 border-b-2 border-gray-300 text-gray-400 font-medium">
-                 ĐĂNG KÝ
+                ĐĂNG KÝ
                 </button>
             </div>
         </div>
@@ -62,7 +62,7 @@ export default function LoginPage() {
             <p className="text-center text-gray-700">Hoặc</p>
 
             <button className="bg-pink-200  text-black py-3 flex items-center justify-center relative">
-               <FcGoogle size={22} className="absolute left-4"/>
+              <FcGoogle size={22} className="absolute left-4"/>
               ĐĂNG NHẬP GOOGLE
             </button>
 

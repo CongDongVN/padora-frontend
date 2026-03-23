@@ -43,11 +43,11 @@ export default function ProductDetail() {
 
             {/* BUTTON */}
             <div className="mt-6 space-y-4">
-              <button className="w-full bg-black text-white py-3">
+              <button className="w-full bg-black text-white py-3 cursor-pointer hover:bg-gray-900 transition">
                 MUA NGAY
               </button>
 
-              <button className="w-full border border-black text-black py-3">
+              <button className="w-full border border-black text-black py-3 cursor-pointer hover:bg-white transition">
                 THÊM VÀO GIỎ
               </button>
             </div>
