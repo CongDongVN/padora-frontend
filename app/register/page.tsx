@@ -2,11 +2,13 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { FcGoogle } from "react-icons/fc";
-import { FaFacebook,} from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useState } from "react";
+import Link from "next/link"
 
-export default function RegisterPage() {
+
+export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <>
@@ -14,27 +16,33 @@ export default function RegisterPage() {
 
       {/* nền trắng */}
       <div className="bg-white min-h-screen flex justify-center py-20">
-
         <div className="w-[520px]">
-
           {/* title */}
           <h1 className="text-3xl text-black font-bold text-center mb-2">
             TÀI KHOẢN CỦA TÔI
           </h1>
-
           <p className="text-center text-gray-700 mb-10">
             Đăng ký ngay để nhận các ưu đãi độc quyền từ Pandora
           </p>
 
           {/* tab */}
-          <div className="flex justify-center gap-10 text-lg font-semibold mb-6">
-            <span className="text-gray-400 border-b-2 border-gray-400 w-[250px] text-center pb-2">
-              ĐĂNG NHẬP
-            </span>
+          <div className="flex mb-6 border-b text-lg font-semibold">
+            <div className="w-1/2 pr-4">
+              <Link href="/login">
+                <button className="w-full text-center cursor-pointer pb-3 
+            border-b-2 border-gray-300 text-gray-400 hover:opacity-70 transition">
+                  ĐĂNG NHẬP
+                </button>
+              </Link>
+            </div>
 
-            <span className="border-b-2 text-black border-black w-[250px] text-center pb-2">
-              ĐĂNG KÝ
-            </span>
+            <div className="w-1/2 pl-4">
+
+              <button className="w-full text-center pb-3 
+            border-b-2 border-black text-black cursor-pointer hover:opacity-70 transition">
+                ĐĂNG KÝ
+              </button>
+            </div>
           </div>
 
           {/* form box */}
@@ -45,36 +53,36 @@ export default function RegisterPage() {
               {/* input */}
               <input
                 className="w-full px-4 py-3 bg-white border border-gray-300 
-                           outline-none text-black placeholder-gray-600
-                           focus:bg-white focus:border-black transition"
+                          outline-none text-black placeholder-gray-600
+                          focus:bg-white focus:border-black transition"
                 placeholder="Họ"
               />
 
               <input
                 className="w-full px-4 py-3 bg-white border border-gray-300 
-                           outline-none text-black placeholder-gray-600
-                           focus:bg-white focus:border-black transition"
+                          outline-none text-black placeholder-gray-600
+                          focus:bg-white focus:border-black transition"
                 placeholder="Tên"
               />
 
               <input
                 className="w-full px-4 py-3 bg-white border border-gray-300 
-                           outline-none text-black placeholder-gray-600
-                           focus:bg-white focus:border-black transition"
+                          outline-none text-black placeholder-gray-600
+                          focus:bg-white focus:border-black transition"
                 placeholder="Số điện thoại"
               />
 
               <input
                 className="w-full px-4 py-3 bg-white border border-gray-300 
-                           outline-none text-black placeholder-gray-600
-                           focus:bg-white focus:border-black transition"
+                          outline-none text-black placeholder-gray-600
+                          focus:bg-white focus:border-black transition"
                 placeholder="Email"
               />
 
               <input
                 className="w-full px-4 py-3 bg-white border border-gray-300 
-                           outline-none text-black placeholder-gray-600
-                           focus:bg-white focus:border-black transition"
+                          outline-none text-black placeholder-gray-600
+                          focus:bg-white focus:border-black transition"
                 placeholder="Ngày tháng năm sinh"
               />
 
@@ -82,7 +90,7 @@ export default function RegisterPage() {
               <div
                 className="flex items-center px-4 py-3 bg-gray-100 border border-gray-300
                           focus-within:bg-white focus-within:border-black transition"
->
+              >
                 <input
                   type={showPassword ? "text" : "password"}
                   className="w-full outline-none bg-transparent text-black placeholder-gray-600"
