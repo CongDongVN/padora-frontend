@@ -213,67 +213,66 @@ export default function ProductDetail() {
       </div>
 
       <section className="w-full bg-white pt-0 pb-8"> {/* pb-20 để tạo khoảng cách với Footer */}
-      <div className="max-w-7xl mx-auto px-16 py-12 bg-white">
-        <h2 className="text-2xl font-bold text-gray-800 mb-8 uppercase tracking-tight">
-          Đánh giá & Nhận xét
-        </h2>
+        <div className="max-w-7xl mx-auto px-16 py-12 bg-white">
+          <h2 className="text-2xl font-bold text-gray-800 mb-8 uppercase tracking-tight">
+            Đánh giá & Nhận xét
+          </h2>
 
-        {/* Main Review Box */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center border border-gray-100 p-8 rounded-2xl shadow-sm">
+          {/* Main Review Box */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center border border-gray-100 p-8 rounded-2xl shadow-sm">
 
-          {/* LEFT: Average Score */}
-          <div className="md:col-span-3 text-center border-r border-gray-100 pr-10">
-            <div className="flex flex-col items-center">
-              <Star className="w-16 h-16 text-[#f4a2ad] fill-[#f4a2ad] mb-2" />
-              <span className="text-6xl font-bold text-gray-900">0.0</span>
-              <p className="text-gray-500 mt-2 text-sm font-medium">0 đánh giá</p>
-            </div>
-          </div>
-
-          {/* MIDDLE: Progress Bars */}
-          <div className="md:col-span-5 flex flex-col gap-3">
-            {[5, 4, 3, 2, 1].map((star) => (
-              <div key={star} className="flex items-center gap-4 group">
-                <div className="flex gap-0.5 w-24">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-4 h-4 ${i < star ? "text-[#f4a2ad] fill-[#f4a2ad]" : "text-gray-200"
-                        }`}
-                    />
-                  ))}
-                </div>
-                <div className="flex-grow bg-gray-100 h-2.5 rounded-full overflow-hidden">
-                  <div className="bg-[#f4a2ad] h-full w-0 transition-all duration-500"></div>
-                </div>
-                <span className="text-sm text-gray-400 w-4 font-mono">0</span>
+            {/* LEFT: Average Score */}
+            <div className="md:col-span-3 text-center border-r border-gray-100 pr-10">
+              <div className="flex flex-col items-center">
+                <Star className="w-16 h-16 text-[#f4a2ad] fill-[#f4a2ad] mb-2" />
+                <span className="text-6xl font-bold text-gray-900">0.0</span>
+                <p className="text-gray-500 mt-2 text-sm font-medium">0 đánh giá</p>
               </div>
-            ))}
-          </div>
+            </div>
 
-          {/* RIGHT: Quick Action */}
-          <div className="md:col-span-4 flex flex-col items-center gap-6 pl-10">
-            <p className="text-lg font-semibold text-gray-700">Đánh giá sản phẩm này</p>
-            <div className="flex gap-3">
-              {[1, 2, 3, 4, 5].map((s) => (
-                <button
-                  key={s}
-                  className="w-14 h-14 border-2 border-gray-200 rounded-xl flex items-center justify-center hover:border-[#f4a2ad] hover:text-[#f4a2ad] transition-all group"
-                >
-                  <Star className="w-7 h-7 group-hover:fill-[#f4a2ad]" />
-                </button>
+            {/* MIDDLE: Progress Bars */}
+            <div className="md:col-span-5 flex flex-col gap-3">
+              {[5, 4, 3, 2, 1].map((star) => (
+                <div key={star} className="flex items-center gap-4 group">
+                  <div className="flex gap-0.5 w-24">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-4 h-4 ${i < star ? "text-[#f4a2ad] fill-[#f4a2ad]" : "text-gray-200"
+                          }`}
+                      />
+                    ))}
+                  </div>
+                  <div className="flex-grow bg-gray-100 h-2.5 rounded-full overflow-hidden">
+                    <div className="bg-[#f4a2ad] h-full w-0 transition-all duration-500"></div>
+                  </div>
+                  <span className="text-sm text-gray-400 w-4 font-mono">0</span>
+                </div>
               ))}
             </div>
-            <button className="text-[#f4a2ad] text-sm font-medium hover:underline underline-offset-4">
-              Hãy là người đầu tiên đánh giá sản phẩm này!
-            </button>
-          </div>
 
+            {/* RIGHT: Quick Action */}
+            <div className="md:col-span-4 flex flex-col items-center gap-6 pl-10">
+              <p className="text-lg font-semibold text-gray-700">Đánh giá sản phẩm này</p>
+              <div className="flex gap-3">
+                {[1, 2, 3, 4, 5].map((s) => (
+                  <button
+                    key={s}
+                    className="w-14 h-14 border-2 border-gray-200 rounded-xl flex items-center justify-center hover:border-[#f4a2ad] hover:text-[#f4a2ad] transition-all group"
+                  >
+                    <Star className="w-7 h-7 group-hover:fill-[#f4a2ad]" />
+                  </button>
+                ))}
+              </div>
+              <button className="text-[#f4a2ad] text-sm font-medium hover:underline underline-offset-4">
+                Hãy là người đầu tiên đánh giá sản phẩm này!
+              </button>
+            </div>
+
+          </div>
         </div>
-      </div>
       </section>
       <Footer />
     </>
-    
   );
 }
