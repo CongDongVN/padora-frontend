@@ -76,7 +76,7 @@ export default function RegisterPage() {
 
               {/* password */}
               <div
-                className="flex items-center px-4 py-3 bg-gray-100 border border-gray-300
+                className="flex items-center px-4 py-3 bg-white border border-gray-300
                           focus-within:bg-white focus-within:border-black transition"
               >
                 <input
