@@ -53,8 +53,7 @@ export default function RegisterPage() {
 
       <div className="bg-white min-h-screen flex justify-center py-20">
         <div className="w-[520px]">
-
-          {/* TITLE */}
+          {/* title */}
           <h1 className="text-3xl text-black font-bold text-center mb-2">
             TÀI KHOẢN CỦA TÔI
           </h1>
@@ -111,16 +110,24 @@ export default function RegisterPage() {
 
               {/* Email */}
               <input
-                value={form.email}
-                onChange={(e) =>
-                  setForm({ ...form, email: e.target.value })
-                }
-                className="input-custom"
+                className="w-full px-4 py-3 bg-white border border-gray-300 
+            outline-none text-black placeholder-gray-600
+                           focus:bg-white focus:border-black transition"
                 placeholder="Email"
               />
 
-              {/* PASSWORD */}
-              <div className="input-password">
+              <input
+                className="w-full px-4 py-3 bg-white border border-gray-300 
+                           outline-none text-black placeholder-gray-600
+                           focus:bg-white focus:border-black transition"
+                placeholder="Ngày tháng năm sinh"
+              />
+
+              {/* password */}
+              <div
+                className="flex items-center px-4 py-3 bg-white border border-gray-300
+                          focus-within:bg-white focus-within:border-black transition"
+              >
                 <input
                   type={showPassword ? "text" : "password"}
                   value={form.passwordHash}
@@ -168,7 +175,6 @@ export default function RegisterPage() {
               <FaFacebook size={20} className="absolute left-4" />
               ĐĂNG NHẬP FACEBOOK
             </button>
-
           </div>
         </div>
       </div>
