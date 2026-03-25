@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,11 +16,29 @@ export default function RegisterPage() {
     phone: "",
     email: "",
     passwordHash: "",
+    address: "",
   });
 
-  const handleRegister = async () => {
-    try {
-      const res = await fetch("https://localhost:7221/api/Auth/register", {
+ const handleRegister = async () => {
+  // Kiểm tra tất cả ô
+  if (
+    !form.fristName.trim() ||
+    !form.lastName.trim() ||
+    !form.phone.trim() ||
+    !form.email.trim() ||
+    !form.passwordHash.trim() ||
+    !form.address.trim()
+  ) {
+    alert(
+      "Đăng ký không thành công, vui lòng điền đầy đủ thông tin các ô"
+    );
+    return;
+  }
+
+  try {
+    const res = await fetch(
+      "https://localhost:7221/api/Auth/register",
+      {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,22 +49,24 @@ export default function RegisterPage() {
           fristName: form.fristName,
           lastName: form.lastName,
           phone: form.phone,
+          address: form.address,
         }),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        alert(data.message || "Đăng ký thất bại");
-        return;
       }
+    );
 
-      alert("Đăng ký thành công");
-    } catch (error) {
-      console.error(error);
-      alert("Không kết nối được backend");
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.message || "Đăng ký thất bại");
+      return;
     }
-  };
+
+    alert("Đăng ký thành công");
+  } catch (error) {
+    console.error(error);
+    alert("Không kết nối được backend");
+  }
+};
 
   return (
     <>
@@ -53,7 +74,6 @@ export default function RegisterPage() {
 
       <div className="bg-white min-h-screen flex justify-center py-20">
         <div className="w-[520px]">
-
           {/* TITLE */}
           <h1 className="text-3xl text-black font-bold text-center mb-2">
             TÀI KHOẢN CỦA TÔI
@@ -64,21 +84,29 @@ export default function RegisterPage() {
           </p>
 
           {/* TAB */}
-          <div className="flex justify-center gap-10 text-lg font-semibold mb-8">
-            <span className="text-gray-400 border-b-2 border-gray-300 w-[250px] text-center pb-2">
-              ĐĂNG NHẬP
-            </span>
+          <div className="flex mb-6 border-b">
+            <div className="w-1/2 pr-4">
+              <Link
+                href="/login"
+                className="block w-full text-center pb-3 border-b-2 border-gray-300 font-medium text-black"
+              >
+                ĐĂNG NHẬP
+              </Link>
+            </div>
 
-            <span className="border-b-2 text-black border-black w-[250px] text-center pb-2">
-              ĐĂNG KÝ
-            </span>
+            <div className="w-1/2 pl-4">
+              <Link
+                href="/register"
+                className="block w-full text-center pb-3 border-b-2 border-black text-black-400 font-medium text-black"
+              >
+                ĐĂNG KÝ
+              </Link>
+            </div>
           </div>
 
           {/* FORM */}
           <div className="border border-gray-200 bg-white p-10 shadow-sm">
-
             <div className="flex flex-col gap-5">
-
               {/* Họ */}
               <input
                 value={form.fristName}
@@ -92,9 +120,7 @@ export default function RegisterPage() {
               {/* Tên */}
               <input
                 value={form.lastName}
-                onChange={(e) =>
-                  setForm({ ...form, lastName: e.target.value })
-                }
+                onChange={(e) => setForm({ ...form, lastName: e.target.value })}
                 className="input-custom"
                 placeholder="Tên"
               />
@@ -102,9 +128,7 @@ export default function RegisterPage() {
               {/* Phone */}
               <input
                 value={form.phone}
-                onChange={(e) =>
-                  setForm({ ...form, phone: e.target.value })
-                }
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 className="input-custom"
                 placeholder="Số điện thoại"
               />
@@ -112,9 +136,7 @@ export default function RegisterPage() {
               {/* Email */}
               <input
                 value={form.email}
-                onChange={(e) =>
-                  setForm({ ...form, email: e.target.value })
-                }
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
                 className="input-custom"
                 placeholder="Email"
               />
@@ -143,6 +165,12 @@ export default function RegisterPage() {
                   />
                 )}
               </div>
+              <input
+                value={form.address}
+                onChange={(e) => setForm({ ...form, address: e.target.value })}
+                className="input-custom"
+                placeholder="Địa chỉ"
+              />
 
               {/* BUTTON */}
               <button
@@ -168,7 +196,6 @@ export default function RegisterPage() {
               <FaFacebook size={20} className="absolute left-4" />
               ĐĂNG NHẬP FACEBOOK
             </button>
-
           </div>
         </div>
       </div>
