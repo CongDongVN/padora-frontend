@@ -8,11 +8,49 @@ import { useState } from "react";
 
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
+
+  const [form, setForm] = useState({
+    fristName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    passwordHash: "",
+  });
+
+  const handleRegister = async () => {
+    try {
+      const res = await fetch("https://localhost:7221/api/Auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: form.email,
+          passwordHash: form.passwordHash,
+          fristName: form.fristName,
+          lastName: form.lastName,
+          phone: form.phone,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.message || "Đăng ký thất bại");
+        return;
+      }
+
+      alert("Đăng ký thành công");
+    } catch (error) {
+      console.error(error);
+      alert("Không kết nối được backend");
+    }
+  };
+
   return (
     <>
       <Header />
 
-      {/* nền trắng */}
       <div className="bg-white min-h-screen flex justify-center py-20">
         <div className="w-[520px]">
           {/* title */}
@@ -20,13 +58,13 @@ export default function RegisterPage() {
             TÀI KHOẢN CỦA TÔI
           </h1>
 
-          <p className="text-center text-gray-700 mb-10">
+          <p className="text-center text-gray-600 mb-10">
             Đăng ký ngay để nhận các ưu đãi độc quyền từ Pandora
           </p>
 
-          {/* tab */}
-          <div className="flex justify-center gap-10 text-lg font-semibold mb-6">
-            <span className="text-gray-400 border-b-2 border-gray-400 w-[250px] text-center pb-2">
+          {/* TAB */}
+          <div className="flex justify-center gap-10 text-lg font-semibold mb-8">
+            <span className="text-gray-400 border-b-2 border-gray-300 w-[250px] text-center pb-2">
               ĐĂNG NHẬP
             </span>
 
@@ -35,31 +73,42 @@ export default function RegisterPage() {
             </span>
           </div>
 
-          {/* form box */}
-          <div className="border border-gray-300 bg-white p-10">
+          {/* FORM */}
+          <div className="border border-gray-200 bg-white p-10 shadow-sm">
+
             <div className="flex flex-col gap-5">
-              {/* input */}
+
+              {/* Họ */}
               <input
-                className="w-full px-4 py-3 bg-white border border-gray-300 
-                           outline-none text-black placeholder-gray-600
-                           focus:bg-white focus:border-black transition"
+                value={form.fristName}
+                onChange={(e) =>
+                  setForm({ ...form, fristName: e.target.value })
+                }
+                className="input-custom"
                 placeholder="Họ"
               />
 
+              {/* Tên */}
               <input
-                className="w-full px-4 py-3 bg-white border border-gray-300 
-                           outline-none text-black placeholder-gray-600
-                           focus:bg-white focus:border-black transition"
+                value={form.lastName}
+                onChange={(e) =>
+                  setForm({ ...form, lastName: e.target.value })
+                }
+                className="input-custom"
                 placeholder="Tên"
               />
 
+              {/* Phone */}
               <input
-                className="w-full px-4 py-3 bg-white border border-gray-300 
-                           outline-none text-black placeholder-gray-600
-                           focus:bg-white focus:border-black transition"
+                value={form.phone}
+                onChange={(e) =>
+                  setForm({ ...form, phone: e.target.value })
+                }
+                className="input-custom"
                 placeholder="Số điện thoại"
               />
 
+              {/* Email */}
               <input
                 className="w-full px-4 py-3 bg-white border border-gray-300 
             outline-none text-black placeholder-gray-600
@@ -81,40 +130,48 @@ export default function RegisterPage() {
               >
                 <input
                   type={showPassword ? "text" : "password"}
-                  className="w-full outline-none bg-transparent text-black placeholder-gray-600"
+                  value={form.passwordHash}
+                  onChange={(e) =>
+                    setForm({ ...form, passwordHash: e.target.value })
+                  }
+                  className="w-full outline-none bg-transparent text-black placeholder-gray-400"
                   placeholder="Mật khẩu *"
                 />
 
                 {showPassword ? (
                   <FaRegEye
-                    className="text-black cursor-pointer"
+                    className="cursor-pointer text-gray-600 hover:text-black"
                     onClick={() => setShowPassword(false)}
                   />
                 ) : (
                   <FaRegEyeSlash
-                    className="text-black cursor-pointer"
+                    className="cursor-pointer text-gray-600 hover:text-black"
                     onClick={() => setShowPassword(true)}
                   />
                 )}
               </div>
 
-              {/* button */}
-              <button className="bg-black text-white py-3 mt-2 hover:bg-gray-800 transition">
+              {/* BUTTON */}
+              <button
+                onClick={handleRegister}
+                className="bg-black text-white py-3 mt-2 
+                           hover:bg-gray-800 transition duration-200 font-semibold"
+              >
                 ĐĂNG KÝ TÀI KHOẢN
               </button>
             </div>
 
-            {/* divider */}
-            <div className="text-center my-6 text-gray-700">Hoặc</div>
+            {/* DIVIDER */}
+            <div className="text-center my-6 text-gray-500">Hoặc</div>
 
-            {/* google */}
-            <button className="flex items-center justify-center gap-3 w-full bg-[#f2b8c6] text-black py-3 mb-4  relative">
+            {/* GOOGLE */}
+            <button className="flex items-center justify-center gap-3 w-full bg-[#f2b8c6] text-black py-3 mb-4 relative hover:opacity-90 transition">
               <FcGoogle size={22} className="absolute left-4" />
               ĐĂNG NHẬP GOOGLE
             </button>
 
-            {/* facebook */}
-            <button className="flex items-center justify-center gap-3 w-full bg-[#2f6fdb] text-white py-3  relative">
+            {/* FACEBOOK */}
+            <button className="flex items-center justify-center gap-3 w-full bg-[#2f6fdb] text-white py-3 relative hover:opacity-90 transition">
               <FaFacebook size={20} className="absolute left-4" />
               ĐĂNG NHẬP FACEBOOK
             </button>
