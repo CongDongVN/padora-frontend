@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import {
   LayoutDashboard,
   Package,
@@ -15,6 +16,28 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
+
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Giả sử bạn lưu role trong localStorage hoặc cookie
+    const role = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("userRole="))
+      ?.split("=")[1];
+
+    if (role !== "Admin") {
+      router.push("/login"); // Hoặc trang báo lỗi
+    } else {
+      setIsLoading(false);
+    }
+  }, [router]);
+
+  // Trong khi chờ kiểm tra quyền, không hiển thị gì cả hoặc hiện loading
+  if (isLoading) {
+    return <div className="h-screen flex items-center justify-center">Loading...</div>;
+  }
   const pathname = usePathname();
 
   const menu = [
