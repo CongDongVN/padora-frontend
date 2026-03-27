@@ -97,10 +97,13 @@ export default function ProductDetail() {
 
       {/* RELATED PRODUCTS */}
       <div className="px-16 pb-16 bg-white">
-        <h1 className="text-center text-lg pt-5 font-semibold mb-8 text-black">
-          SẢN PHẨM CÙNG LOẠI
-        </h1>
-
+        <div className="relative flex items-center mb-12">
+          <div className="flex-grow border-t border-gray-200"></div>
+          <h2 className="flex-shrink mx-8 tracking-widest uppercase text-lg pt-5 font-semibold mb-5 text-black">
+            SẢN PHẨM CÙNG LOẠI
+          </h2>
+          <div className="flex-grow border-t border-gray-200"></div>
+        </div>
         <div className="flex gap-6 overflow-x-auto">
 
           {/* ITEM */}
@@ -158,7 +161,7 @@ export default function ProductDetail() {
               <div key={item.id} className="relative flex flex-col group cursor-pointer">
 
                 {/* Heart Icon */}
-                <button className="absolute right-3 top-3 z-10 text-gray-400 hover:text-red-500 transition">
+                <button className="absolute right-10 top-3 z-10 text-gray-400 hover:text-red-500 transition">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
                   </svg>

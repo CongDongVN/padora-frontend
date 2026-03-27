@@ -50,4 +50,59 @@ export const  allProducts: Product[] = [
     image: "/img/hoatai/test05.png",
     group: "suggested"
   },
+    {
+    id: 5,
+    name: "Bộ Trang Sức Dây Chuyền, Hoa Tai và Nhẫn Pandora Trăng Khuyết",
+    price: 36000000,
+    oldPrice: 72000000,
+    discount: 50,
+    tag: "Limited",
+    isExclusive: true,
+    image: "/img/hoatai/test05.png",
+    group: "suggested"
+  },
+    {
+    id: 5,
+    name: "Bộ Trang Sức Dây Chuyền, Hoa Tai và Nhẫn Pandora Trăng Khuyết",
+    price: 36000000,
+    oldPrice: 72000000,
+    discount: 50,
+    tag: "Limited",
+    isExclusive: true,
+    image: "/img/hoatai/test05.png",
+    group: "suggested"
+  },
+    {
+    id: 5,
+    name: "Bộ Trang Sức Dây Chuyền, Hoa Tai và Nhẫn Pandora Trăng Khuyết",
+    price: 36000000,
+    oldPrice: 72000000,
+    discount: 50,
+    tag: "Limited",
+    isExclusive: true,
+    image: "/img/hoatai/test05.png",
+    group: "suggested"
+  },
+    {
+    id: 5,
+    name: "Bộ Trang Sức Dây Chuyền, Hoa Tai và Nhẫn Pandora Trăng Khuyết",
+    price: 36000000,
+    oldPrice: 72000000,
+    discount: 50,
+    tag: "Limited",
+    isExclusive: true,
+    image: "/img/hoatai/test05.png",
+    group: "suggested"
+  },
+    {
+    id: 5,
+    name: "Bộ Trang Sức Dây Chuyền, Hoa Tai và Nhẫn Pandora Trăng Khuyết",
+    price: 36000000,
+    oldPrice: 72000000,
+    discount: 50,
+    tag: "Limited",
+    isExclusive: true,
+    image: "/img/hoatai/test05.png",
+    group: "suggested"
+  },
 ];
