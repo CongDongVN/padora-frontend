@@ -14,48 +14,59 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     setLoading(true);
     setMessage("");
+    setIsError(false);
 
     try {
       const res = await fetch("https://localhost:7221/api/auth/login", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
       });
 
-      const data = await res.json();
+      const isJson = res.headers.get('content-type')?.includes('application/json');
+      const data = isJson ? await res.json() : null;
 
       if (res.ok) {
-        setMessage(data.message || "Đăng nhập thành công");
+       
+        // if (data.role === "Admin") {
+        //   setIsError(true);
+        //   setMessage("Tài khoản Admin vui lòng đăng nhập tại trang quản trị.");
+        //   setLoading(false);
+        //   return; // Dừng xử lý, không cho login
+        // }
 
-        // Lưu user vào localStorage
+        // NẾU LÀ USER BÌNH THƯỜNG
+        setMessage("Đăng nhập thành công! Đang chuyển hướng...");
+        setIsError(false);
+        
+        // Lưu thông tin
         localStorage.setItem("user", JSON.stringify(data));
+        document.cookie = `userRole=${data.role}; path=/; max-age=86400`;
+        document.cookie = `isLoggedIn=true; path=/; max-age=86400`;
 
-        console.log("User:", data);
+        // Chuyển về trang chủ sau 1.5s để người dùng kịp thấy thông báo thành công
+        setTimeout(() => {
+          window.location.href = "/"; 
+        }, 1500);
 
-        // Ví dụ: chuyển trang sau khi login
-        // window.location.href = "/";
       } else {
-        setMessage(data);
+        setIsError(true);
+        const errorMsg = data?.message || await res.text() || "Email hoặc mật khẩu không đúng";
+        setMessage(errorMsg);
       }
     } catch (error) {
-      console.error(error);
-      setMessage("Không thể kết nối tới server");
+      setIsError(true);
+      setMessage("Không thể kết nối tới server.");
     } finally {
       setLoading(false);
     }
   };
-
   return (
     <>
       <Header />

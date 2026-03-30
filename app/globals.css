@@ -35,18 +35,39 @@ body {
 .animate-slide {
   animation: slideBanner 60s infinite;
 }
-/* INPUT CHUẨN */
-.input-custom {
-  @apply w-full px-4 py-3 bg-white border border-gray-300 
-         text-black placeholder-gray-400
-         outline-none
-         focus:border-black focus:ring-1 focus:ring-black
-         transition duration-200;
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* INPUT PASSWORD */
-.input-password {
-  @apply flex items-center px-4 py-3 bg-white border border-gray-300
-         focus-within:border-black focus-within:ring-1 focus-within:ring-black
-         transition duration-200;
+.animate-slideDown {
+  animation: slideDown 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-in-out;
+}
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }

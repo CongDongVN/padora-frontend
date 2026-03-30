@@ -74,7 +74,7 @@ export default function RegisterPage() {
 
       <div className="bg-white min-h-screen flex justify-center py-20">
         <div className="w-[520px]">
-          {/* TITLE */}
+          {/* title */}
           <h1 className="text-3xl text-black font-bold text-center mb-2">
             TÀI KHOẢN CỦA TÔI
           </h1>
@@ -113,7 +113,9 @@ export default function RegisterPage() {
                 onChange={(e) =>
                   setForm({ ...form, fristName: e.target.value })
                 }
-                className="input-custom"
+                className="w-full px-4 py-3 bg-white border border-gray-300 
+            outline-none text-black placeholder-gray-600
+                           focus:bg-white focus:border-black transition"
                 placeholder="Họ"
               />
 
@@ -121,28 +123,45 @@ export default function RegisterPage() {
               <input
                 value={form.lastName}
                 onChange={(e) => setForm({ ...form, lastName: e.target.value })}
-                className="input-custom"
+                className="w-full px-4 py-3 bg-white border border-gray-300 
+            outline-none text-black placeholder-gray-600
+                           focus:bg-white focus:border-black transition"
                 placeholder="Tên"
               />
 
               {/* Phone */}
               <input
+              
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="input-custom"
+                className="w-full px-4 py-3 bg-white border border-gray-300 
+            outline-none text-black placeholder-gray-600
+                           focus:bg-white focus:border-black transition"
                 placeholder="Số điện thoại"
               />
 
               {/* Email */}
-              <input
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="input-custom"
-                placeholder="Email"
-              />
+             <input
+  value={form.email} // Thêm dòng này
+  onChange={(e) => setForm({ ...form, email: e.target.value })} // Thêm dòng này
+  className="w-full px-4 py-3 bg-white border border-gray-300 
+             outline-none text-black placeholder-gray-600
+             focus:bg-white focus:border-black transition"
+  placeholder="Email"
+/>
 
-              {/* PASSWORD */}
-              <div className="input-password">
+              {/* <input
+                className="w-full px-4 py-3 bg-white border border-gray-300 
+                           outline-none text-black placeholder-gray-600
+                           focus:bg-white focus:border-black transition"
+                placeholder="Ngày tháng năm sinh"
+              /> */}
+
+              {/* password */}
+              <div
+                className="flex items-center px-4 py-3 bg-white border border-gray-300
+                          focus-within:bg-white focus-within:border-black transition"
+              >
                 <input
                   type={showPassword ? "text" : "password"}
                   value={form.passwordHash}
@@ -168,7 +187,9 @@ export default function RegisterPage() {
               <input
                 value={form.address}
                 onChange={(e) => setForm({ ...form, address: e.target.value })}
-                className="input-custom"
+                className="w-full px-4 py-3 bg-white border border-gray-300 
+            outline-none text-black placeholder-gray-600
+                           focus:bg-white focus:border-black transition"
                 placeholder="Địa chỉ"
               />
 
