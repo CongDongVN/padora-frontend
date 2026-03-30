@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import Link from "next/link"
@@ -10,11 +11,49 @@ import Link from "next/link"
 
 export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
+
+  const [form, setForm] = useState({
+    fristName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    passwordHash: "",
+  });
+
+  const handleRegister = async () => {
+    try {
+      const res = await fetch("https://localhost:7221/api/Auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: form.email,
+          passwordHash: form.passwordHash,
+          fristName: form.fristName,
+          lastName: form.lastName,
+          phone: form.phone,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.message || "Đăng ký thất bại");
+        return;
+      }
+
+      alert("Đăng ký thành công");
+    } catch (error) {
+      console.error(error);
+      alert("Không kết nối được backend");
+    }
+  };
+
   return (
     <>
       <Header />
 
-      {/* nền trắng */}
       <div className="bg-white min-h-screen flex justify-center py-20">
         <div className="w-[520px]">
           {/* title */}
@@ -45,12 +84,12 @@ export default function RegisterForm() {
             </div>
           </div>
 
-          {/* form box */}
-          <div className="border border-gray-300 bg-white p-10">
+          {/* FORM */}
+          <div className="border border-gray-200 bg-white p-10 shadow-sm">
 
             <div className="flex flex-col gap-5">
 
-              {/* input */}
+              {/* Họ */}
               <input
                 className="w-full px-4 py-3 bg-white border border-gray-300 
                           outline-none text-black placeholder-gray-600
@@ -58,6 +97,7 @@ export default function RegisterForm() {
                 placeholder="Họ"
               />
 
+              {/* Tên */}
               <input
                 className="w-full px-4 py-3 bg-white border border-gray-300 
                           outline-none text-black placeholder-gray-600
@@ -65,6 +105,7 @@ export default function RegisterForm() {
                 placeholder="Tên"
               />
 
+              {/* Phone */}
               <input
                 className="w-full px-4 py-3 bg-white border border-gray-300 
                           outline-none text-black placeholder-gray-600
@@ -72,6 +113,7 @@ export default function RegisterForm() {
                 placeholder="Số điện thoại"
               />
 
+              {/* Email */}
               <input
                 className="w-full px-4 py-3 bg-white border border-gray-300 
                           outline-none text-black placeholder-gray-600
@@ -88,56 +130,59 @@ export default function RegisterForm() {
 
               {/* password */}
               <div
-                className="flex items-center px-4 py-3 bg-gray-100 border border-gray-300
+                className="flex items-center px-4 py-3 bg-white border border-gray-300
                           focus-within:bg-white focus-within:border-black transition"
+              >
               >
                 <input
                   type={showPassword ? "text" : "password"}
-                  className="w-full outline-none bg-transparent text-black placeholder-gray-600"
+                  value={form.passwordHash}
+                  onChange={(e) =>
+                    setForm({ ...form, passwordHash: e.target.value })
+                  }
+                  className="w-full outline-none bg-transparent text-black placeholder-gray-400"
                   placeholder="Mật khẩu *"
                 />
 
                 {showPassword ? (
                   <FaRegEye
-                    className="text-black cursor-pointer"
+                    className="cursor-pointer text-gray-600 hover:text-black"
                     onClick={() => setShowPassword(false)}
                   />
                 ) : (
                   <FaRegEyeSlash
-                    className="text-black cursor-pointer"
+                    className="cursor-pointer text-gray-600 hover:text-black"
                     onClick={() => setShowPassword(true)}
                   />
                 )}
               </div>
 
-              {/* button */}
-              <button className="bg-black text-white py-3 mt-2 hover:bg-gray-800 transition">
+              {/* BUTTON */}
+              <button
+                onClick={handleRegister}
+                className="bg-black text-white py-3 mt-2 
+                           hover:bg-gray-800 transition duration-200 font-semibold"
+              >
                 ĐĂNG KÝ TÀI KHOẢN
               </button>
-
             </div>
 
-            {/* divider */}
-            <div className="text-center my-6 text-gray-700">
-              Hoặc
-            </div>
+            {/* DIVIDER */}
+            <div className="text-center my-6 text-gray-500">Hoặc</div>
 
-            {/* google */}
-            <button className="flex items-center justify-center gap-3 w-full bg-[#f2b8c6] text-black py-3 mb-4  relative">
+            {/* GOOGLE */}
+            <button className="flex items-center justify-center gap-3 w-full bg-[#f2b8c6] text-black py-3 mb-4 relative hover:opacity-90 transition">
               <FcGoogle size={22} className="absolute left-4" />
               ĐĂNG NHẬP GOOGLE
             </button>
 
-            {/* facebook */}
-            <button className="flex items-center justify-center gap-3 w-full bg-[#2f6fdb] text-white py-3  relative">
+            {/* FACEBOOK */}
+            <button className="flex items-center justify-center gap-3 w-full bg-[#2f6fdb] text-white py-3 relative hover:opacity-90 transition">
               <FaFacebook size={20} className="absolute left-4" />
               ĐĂNG NHẬP FACEBOOK
             </button>
-
           </div>
-
         </div>
-
       </div>
 
       <Footer />
