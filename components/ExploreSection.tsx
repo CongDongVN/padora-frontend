@@ -19,7 +19,7 @@ export default function ExploreSection() {
                     </p>
                     <h2 className="text-[60px] md:text-[100px] font-bold text-[#333232] leading-none tracking-tighter font-playfair flex items-center gap-4">
                         PANDORA
-                        <span className="text-[40px] md:text-[60px] mb-8">O</span> {/* Giả lập vương miện trên chữ O nếu cần */}
+                        <span className="text-[40px] md:text-[60px] mb-8"></span> {/* Giả lập vương miện trên chữ O nếu cần */}
                     </h2>
                 </div>
 
