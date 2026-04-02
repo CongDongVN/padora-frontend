@@ -3,6 +3,7 @@ import { ChevronDown } from "lucide-react";
 import MegaMenu from "./megamenu";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
+import UserMenu from "@/components/UserMenu";
 import {
   FiSearch,
   FiHeart,
@@ -27,13 +28,13 @@ export default function Header() {
   const handleLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setOpen(null);
-    }, 150); // delay tránh flicker
+    }, 150);
   };
 
   const [openAuth, setOpenAuth] = useState(false);
   const [openUser, setOpenUser] = useState(false);
 
-  // ✅ GIỮ user state (để backend dùng sau này)
+  // GIỮ user state để kiểm tra login/logout
   const [user, setUser] = useState<any>(null);
 
   const userRef = useRef<HTMLDivElement>(null);
@@ -52,7 +53,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="relative border-b bg-white">
+    <header className="fixed top-0 z-50 border-b bg-white w-full">
       {/* top banner */}
       <div className="bg-[#ff93a0] text-center text-[13px] py-2 relative text-black">
         Khắc thông điệp - Chạm cảm xúc
@@ -64,12 +65,12 @@ export default function Header() {
 
       {/* main header */}
       <div className="w-full px-16 flex items-center justify-between py-5">
-        {/* logo */}
-        <div className="text-3xl font-bold tracking-widest text-black">
-          PANDORA
-        </div>
-
-        {/* right */}
+        {/* left - logo */}
+        <Link href="/" className="flex items-center gap-1">
+          <div className="text-3xl font-bold tracking-widest text-black">
+            PANDORA
+          </div>
+        </Link>
         <div className="flex items-center gap-8">
           {/* search */}
           <div
@@ -99,104 +100,7 @@ export default function Header() {
               <span className="w-5 h-0.5 bg-transparent group-hover:bg-[#ff93a0] mt-1 transition"></span>
             </div>
 
-            {/* USER */}
-            <div
-              ref={userRef}
-              className="relative group flex flex-col items-center cursor-pointer"
-            >
-              <FiUser
-                onClick={() => {
-                  if (user) {
-                    setOpenUser(!openUser);
-                    setOpenAuth(false);
-                  } else {
-                    setOpenAuth(!openAuth);
-                    setOpenUser(false);
-                  }
-                }}
-                className="transition group-hover:text-[#ff93a0]"
-              />
-              <span className="w-5 h-0.5 bg-transparent group-hover:bg-[#ff93a0] mt-1 transition"></span>
-
-              {/* 🔓 CHƯA LOGIN */}
-              {!user && openAuth && (
-                <div className="absolute top-15 right-0 w-70 bg-white shadow-xl rounded-sm overflow-hidden z-50 animate-slideDown">
-                  <div className="p-5 flex flex-col gap-4">
-                    <Link
-                      href="/login"
-                      onClick={() => setOpenAuth(false)}
-                      className="block text-center w-full bg-black text-white py-3.5 rounded-sm text-[12px] font-semibold tracking-wider hover:bg-gray-800 transition"
-                    >
-                      ĐĂNG NHẬP
-                    </Link>
-
-                    <Link
-                      href="/register"
-                      onClick={() => setOpenAuth(false)}
-                      className="block text-center w-full bg-black text-white py-3.5 rounded-sm text-[12px] font-semibold tracking-wider hover:bg-gray-800 transition"
-                    >
-                      ĐĂNG KÝ
-                    </Link>
-
-                    <img
-                      src="/img/hinh_log_in.png"
-                      className="w-full h-50 object-cover rounded-sm"
-                    />
-
-                    <p className="text-center text-xs font-semibold text-black leading-relaxed px-2">
-                      Đăng ký thành viên PANDORA ngay
-                      <br />
-                      để tận hưởng ưu đãi độc quyền online.
-                    </p>
-                  </div>
-                </div>
-              )}
-
-              {/* ĐÃ LOGIN */}
-              {user && openUser && (
-                <div className="absolute top-9 mt-6 right-0 w-65 bg-white shadow-xl rounded-sm z-50 animate-slideDown">
-                  <div className="py-2 text-[13px]">
-                    <div className="flex flex-col">
-                      <div className="flex items-center gap-3 px-4 py-2.5 font-semibold text-gray-800 hover:bg-gray-50 cursor-pointer leading-none">
-                        <FiUser className="text-[17px] shrink-0 text-gray-800" />
-                        <span>THÔNG TIN TÀI KHOẢN</span>
-                      </div>
-
-                      <div className="flex items-center gap-3 px-4 py-2.5 font-semibold text-gray-800 hover:bg-gray-50 cursor-pointer leading-none">
-                        <FiClock className="text-[17px] shrink-0 text-gray-800" />
-                        <span>LỊCH SỬ MUA HÀNG</span>
-                      </div>
-
-                      <div className="flex items-center gap-3 px-4 py-2.5 font-semibold text-gray-800 hover:bg-gray-50 cursor-pointer leading-none">
-                        <FiMapPin className="text-[17px] shrink-0 text-gray-800" />
-                        <span>ĐỊA CHỈ GIAO HÀNG</span>
-                      </div>
-
-                      <div className="flex items-center gap-3 px-4 py-2.5 font-semibold text-gray-800 hover:bg-gray-50 cursor-pointer leading-none">
-                        <FiStar className="text-[17px] shrink-0 text-gray-800" />
-                        <span>HẠNG THÀNH VIÊN</span>
-                      </div>
-
-                      <div className="flex items-center gap-3 px-4 py-2.5 font-semibold text-gray-800 hover:bg-gray-50 cursor-pointer leading-none">
-                        <FiGift className="text-[17px] shrink-0 text-gray-800" />
-                        <span>CHƯƠNG TRÌNH KHUYẾN MÃI</span>
-                      </div>
-
-                      <div
-                        onClick={() => {
-                          setUser(null);
-                          setOpenUser(false);
-                        }}
-                        className="flex items-center gap-3 px-4 py-2.5 font-semibold text-gray-800 hover:bg-gray-50 cursor-pointer leading-none"
-                      >
-                        <FiLogOut className="text-[17px] shrink-0 text-gray-800" />
-                        <span>ĐĂNG XUẤT</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
+            <UserMenu />
 
             {/* Bag */}
             <div className="group flex flex-col items-center cursor-pointer">
@@ -217,8 +121,10 @@ export default function Header() {
           onMouseEnter={() => handleEnter("collection")}
           onMouseLeave={handleLeave}
         >
-          <span>BỘ SƯU TẬP MỚI</span>
-          <ChevronDown size={14} />
+          <Link href="/collection" className="flex items-center gap-1">
+            <span>BỘ SƯU TẬP MỚI</span>
+            <ChevronDown size={14} />
+          </Link>
 
           {open === "collection" && (
             <MegaMenu>
@@ -276,9 +182,10 @@ export default function Header() {
           onMouseEnter={() => handleEnter("jewelry")}
           onMouseLeave={handleLeave}
         >
-          <span>TRANG SỨC</span>
-          <ChevronDown size={14} />
-
+          <Link href="/jewelry" className="flex items-center gap-1">
+            <span>TRANG SỨC</span>
+            <ChevronDown size={14} />
+          </Link>
           {open === "jewelry" && (
             <MegaMenu>
               <div className="flex gap-16">
@@ -383,8 +290,10 @@ export default function Header() {
           onMouseEnter={() => handleEnter("bracelet")}
           onMouseLeave={handleLeave}
         >
-          <span>VÒNG TAY</span>
-          <ChevronDown size={14} />
+          <Link href="/products/vong-tay" className="flex items-center gap-1">
+            <span>VÒNG TAY</span>
+            <ChevronDown size={14} />
+          </Link>
 
           {open === "bracelet" && (
             <MegaMenu>
@@ -451,8 +360,10 @@ export default function Header() {
           onMouseEnter={() => handleEnter("charms")}
           onMouseLeave={handleLeave}
         >
-          <span>CHARMS</span>
-          <ChevronDown size={14} />
+          <Link href="/products/charm" className="flex items-center gap-1">
+            <span>CHARMS</span>
+            <ChevronDown size={14} />
+          </Link>
 
           {open === "charms" && (
             <MegaMenu>
@@ -589,8 +500,10 @@ export default function Header() {
           onMouseEnter={() => handleEnter("necklace")}
           onMouseLeave={handleLeave}
         >
-          <span>DÂY CHUYỀN</span>
-          <ChevronDown size={14} />
+          <Link href="/products/day-chuyen" className="flex items-center gap-1">
+            <span>DÂY CHUYỀN</span>
+            <ChevronDown size={14} />
+          </Link>
 
           {open === "necklace" && (
             <MegaMenu>
@@ -651,8 +564,10 @@ export default function Header() {
           onMouseEnter={() => handleEnter("earring")}
           onMouseLeave={handleLeave}
         >
-          <span>HOA TAI</span>
-          <ChevronDown size={14} />
+          <Link href="/products/hoa-tai" className="flex items-center gap-1">
+            <span>HOA TAI</span>
+            <ChevronDown size={14} />
+          </Link>
 
           {open === "earring" && (
             <MegaMenu>
@@ -713,8 +628,10 @@ export default function Header() {
           onMouseEnter={() => handleEnter("ring")}
           onMouseLeave={handleLeave}
         >
-          <span>NHẪN</span>
-          <ChevronDown size={14} />
+          <Link href="/products/nhan" className="flex items-center gap-1">
+            <span>NHẪN</span>
+            <ChevronDown size={14} />
+          </Link>
 
           {open === "ring" && (
             <MegaMenu>
@@ -760,7 +677,6 @@ export default function Header() {
           )}
         </div>
 
-        {/* ===== KHÔNG DROPDOWN ===== */}
         <span className="cursor-pointer text-[#ff93a0] hover:underline">
           CÂU CHUYỆN CỦA BẠN
         </span>
