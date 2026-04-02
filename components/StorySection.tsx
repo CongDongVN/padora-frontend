@@ -30,7 +30,7 @@ export default function StorySection() {
             Lưu giữ ký hiệu và chữ viết tay cá nhân hoá chỉ riêng bạn biết.
           </p>
 
-          <button className="bg-white text-black px-10 py-4 text-[13px] font-bold tracking-[0.2em] uppercase hover:bg-gray-200 transition-all">
+          <button className="bg-white text-black px-10 py-4 text-[13px] font-bold tracking-[0.2em] uppercase hover:bg-[#ff93a0] transition-all">
             KHÁM PHÁ NGAY
           </button>
         </div>
