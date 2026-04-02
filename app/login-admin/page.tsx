@@ -10,28 +10,28 @@ export default function AdminLogin() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-//   const handleAdminLogin = async (e: React.FormEvent) => {
-//   e.preventDefault();
-//   try {
-//     const response = await axios.post("https://localhost:7221/api/Auth/login", { email, password });
+  const handleAdminLogin = async (e: React.FormEvent) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post("https://localhost:7221/api/Auth/login", { email, password });
     
-//     // Dựa vào Response bạn vừa gửi, tên biến là viết thường (camelCase)
-//     const { role, userId } = response.data; 
+    // Dựa vào Response bạn vừa gửi, tên biến là viết thường (camelCase)
+    const { role, userId } = response.data; 
 
-//     console.log("Role nhận được:", role);
+    console.log("Role nhận được:", role);
 
-//     if (role === "Admin") {
-//       document.cookie = `userRole=${role}; path=/; max-age=86400; SameSite=Lax`;
-//       document.cookie = `isLoggedIn=true; path=/; max-age=86400; SameSite=Lax`;
+    if (role === "Admin") {
+      document.cookie = `userRole=${role}; path=/; max-age=86400; SameSite=Lax`;
+      document.cookie = `isLoggedIn=true; path=/; max-age=86400; SameSite=Lax`;
       
-//       window.location.href = "/admin"; 
-//     } else {
-//       setError("Bạn không có quyền Admin.");
-//     }
-//   } catch (err) {
-//     setError("Lỗi kết nối hoặc tài khoản không đúng.");
-//   }
-// };
+      window.location.href = "/admin"; 
+    } else {
+      setError("Bạn không có quyền Admin.");
+    }
+  } catch (err) {
+    setError("Lỗi kết nối hoặc tài khoản không đúng.");
+  }
+};
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <form onSubmit={handleAdminLogin} className="bg-white p-8 w-96 shadow-lg rounded-lg">

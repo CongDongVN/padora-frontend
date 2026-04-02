@@ -2,12 +2,12 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { FcGoogle } from "react-icons/fc";
-import { FaFacebook } from "react-icons/fa";
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { FaFacebook, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import Link from "next/link";
 
-export default function RegisterPage() {
+
+export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   const [form, setForm] = useState({
@@ -50,6 +50,7 @@ export default function RegisterPage() {
           lastName: form.lastName,
           phone: form.phone,
           address: form.address,
+          role: "User"
         }),
       }
     );
@@ -78,29 +79,27 @@ export default function RegisterPage() {
           <h1 className="text-3xl text-black font-bold text-center mb-2">
             TÀI KHOẢN CỦA TÔI
           </h1>
-
-          <p className="text-center text-gray-600 mb-10">
+          <p className="text-center text-gray-700 mb-10">
             Đăng ký ngay để nhận các ưu đãi độc quyền từ Pandora
           </p>
 
-          {/* TAB */}
-          <div className="flex mb-6 border-b">
+          {/* tab */}
+          <div className="flex mb-6 border-b text-lg font-semibold">
             <div className="w-1/2 pr-4">
-              <Link
-                href="/login"
-                className="block w-full text-center pb-3 border-b-2 border-gray-300 font-medium text-black"
-              >
-                ĐĂNG NHẬP
+              <Link href="/login">
+                <button className="w-full text-center cursor-pointer pb-3 
+            border-b-2 border-gray-300 text-gray-400 hover:opacity-70 transition">
+                  ĐĂNG NHẬP
+                </button>
               </Link>
             </div>
 
             <div className="w-1/2 pl-4">
-              <Link
-                href="/register"
-                className="block w-full text-center pb-3 border-b-2 border-black text-black-400 font-medium text-black"
-              >
+
+              <button className="w-full text-center pb-3 
+            border-b-2 border-black text-black cursor-pointer hover:opacity-70 transition">
                 ĐĂNG KÝ
-              </Link>
+              </button>
             </div>
           </div>
 
@@ -109,51 +108,49 @@ export default function RegisterPage() {
             <div className="flex flex-col gap-5">
               {/* Họ */}
               <input
-                value={form.fristName}
-                onChange={(e) =>
-                  setForm({ ...form, fristName: e.target.value })
-                }
                 className="w-full px-4 py-3 bg-white border border-gray-300 
-            outline-none text-black placeholder-gray-600
-                           focus:bg-white focus:border-black transition"
+                          outline-none text-black placeholder-gray-600
+                          focus:bg-white focus:border-black transition"
                 placeholder="Họ"
+                 value={form.fristName}
+                onChange={(e) => setForm({ ...form, fristName: e.target.value })}
               />
 
               {/* Tên */}
               <input
-                value={form.lastName}
-                onChange={(e) => setForm({ ...form, lastName: e.target.value })}
                 className="w-full px-4 py-3 bg-white border border-gray-300 
-            outline-none text-black placeholder-gray-600
-                           focus:bg-white focus:border-black transition"
+                          outline-none text-black placeholder-gray-600
+                          focus:bg-white focus:border-black transition"
                 placeholder="Tên"
+                value={form.lastName}
+                onChange={(e) => setForm({ ...form, lastName: e.target.value })}  
               />
 
               {/* Phone */}
               <input
-              
+                className="w-full px-4 py-3 bg-white border border-gray-300 
+                          outline-none text-black placeholder-gray-600
+                          focus:bg-white focus:border-black transition"
+                placeholder="Số điện thoại"
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="w-full px-4 py-3 bg-white border border-gray-300 
-            outline-none text-black placeholder-gray-600
-                           focus:bg-white focus:border-black transition"
-                placeholder="Số điện thoại"
+
               />
 
               {/* Email */}
-             <input
-  value={form.email} // Thêm dòng này
-  onChange={(e) => setForm({ ...form, email: e.target.value })} // Thêm dòng này
-  className="w-full px-4 py-3 bg-white border border-gray-300 
-             outline-none text-black placeholder-gray-600
-             focus:bg-white focus:border-black transition"
-  placeholder="Email"
-/>
+              <input
+                className="w-full px-4 py-3 bg-white border border-gray-300 
+                          outline-none text-black placeholder-gray-600
+                          focus:bg-white focus:border-black transition"
+                placeholder="Email"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+              />
 
               {/* <input
                 className="w-full px-4 py-3 bg-white border border-gray-300 
-                           outline-none text-black placeholder-gray-600
-                           focus:bg-white focus:border-black transition"
+                          outline-none text-black placeholder-gray-600
+                          focus:bg-white focus:border-black transition"
                 placeholder="Ngày tháng năm sinh"
               /> */}
 
@@ -162,6 +159,7 @@ export default function RegisterPage() {
                 className="flex items-center px-4 py-3 bg-white border border-gray-300
                           focus-within:bg-white focus-within:border-black transition"
               >
+              
                 <input
                   type={showPassword ? "text" : "password"}
                   value={form.passwordHash}
