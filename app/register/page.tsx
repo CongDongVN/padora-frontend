@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useState } from "react";
-import Link from "next/link"
+import Link from "next/link";
 
 
 export default function RegisterForm() {
@@ -17,11 +17,29 @@ export default function RegisterForm() {
     phone: "",
     email: "",
     passwordHash: "",
+    address: "",
   });
 
-  const handleRegister = async () => {
-    try {
-      const res = await fetch("https://localhost:7221/api/Auth/register", {
+ const handleRegister = async () => {
+  // Kiểm tra tất cả ô
+  if (
+    !form.fristName.trim() ||
+    !form.lastName.trim() ||
+    !form.phone.trim() ||
+    !form.email.trim() ||
+    !form.passwordHash.trim() ||
+    !form.address.trim()
+  ) {
+    alert(
+      "Đăng ký không thành công, vui lòng điền đầy đủ thông tin các ô"
+    );
+    return;
+  }
+
+  try {
+    const res = await fetch(
+      "https://localhost:7221/api/Auth/register",
+      {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,22 +50,25 @@ export default function RegisterForm() {
           fristName: form.fristName,
           lastName: form.lastName,
           phone: form.phone,
+          address: form.address,
+          role: "User"
         }),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        alert(data.message || "Đăng ký thất bại");
-        return;
       }
+    );
 
-      alert("Đăng ký thành công");
-    } catch (error) {
-      console.error(error);
-      alert("Không kết nối được backend");
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.message || "Đăng ký thất bại");
+      return;
     }
-  };
+
+    alert("Đăng ký thành công");
+  } catch (error) {
+    console.error(error);
+    alert("Không kết nối được backend");
+  }
+};
 
   return (
     <>
@@ -85,15 +106,15 @@ export default function RegisterForm() {
 
           {/* FORM */}
           <div className="border border-gray-200 bg-white p-10 shadow-sm">
-
             <div className="flex flex-col gap-5">
-
               {/* Họ */}
               <input
                 className="w-full px-4 py-3 bg-white border border-gray-300 
                           outline-none text-black placeholder-gray-600
                           focus:bg-white focus:border-black transition"
                 placeholder="Họ"
+                 value={form.fristName}
+                onChange={(e) => setForm({ ...form, fristName: e.target.value })}
               />
 
               {/* Tên */}
@@ -102,6 +123,8 @@ export default function RegisterForm() {
                           outline-none text-black placeholder-gray-600
                           focus:bg-white focus:border-black transition"
                 placeholder="Tên"
+                value={form.lastName}
+                onChange={(e) => setForm({ ...form, lastName: e.target.value })}  
               />
 
               {/* Phone */}
@@ -110,6 +133,9 @@ export default function RegisterForm() {
                           outline-none text-black placeholder-gray-600
                           focus:bg-white focus:border-black transition"
                 placeholder="Số điện thoại"
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+
               />
 
               {/* Email */}
@@ -118,14 +144,16 @@ export default function RegisterForm() {
                           outline-none text-black placeholder-gray-600
                           focus:bg-white focus:border-black transition"
                 placeholder="Email"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
               />
 
-              <input
+              {/* <input
                 className="w-full px-4 py-3 bg-white border border-gray-300 
                           outline-none text-black placeholder-gray-600
                           focus:bg-white focus:border-black transition"
                 placeholder="Ngày tháng năm sinh"
-              />
+              /> */}
 
               {/* password */}
               <div
@@ -155,6 +183,14 @@ export default function RegisterForm() {
                   />
                 )}
               </div>
+              <input
+                value={form.address}
+                onChange={(e) => setForm({ ...form, address: e.target.value })}
+                className="w-full px-4 py-3 bg-white border border-gray-300 
+            outline-none text-black placeholder-gray-600
+                           focus:bg-white focus:border-black transition"
+                placeholder="Địa chỉ"
+              />
 
               {/* BUTTON */}
               <button

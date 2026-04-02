@@ -5,10 +5,10 @@ import { Product, allProducts } from "@/data/products";
 import { Star } from "lucide-react";
 
 export default function ProductDetail() {
-  // Lọc sản phẩm cùng loại (group là related)
+ 
   const relatedItems = allProducts.filter(item => item.group === "related");
 
-  // Lọc sản phẩm gợi ý (group là suggested)
+
   const suggestedItems = allProducts.filter(item => item.group === "suggested");
   const images = [
     "/img/hoatai/test01.png",
@@ -134,7 +134,7 @@ export default function ProductDetail() {
 
       {/* SUGGESTED SETS SECTION */}
       <div className="px-16 pb-6 bg-white">
-        {/* Dòng kẻ và Tiêu đề */}
+        
         <div className="relative flex items-center mb-12">
           <div className="flex-grow border-t border-gray-200"></div>
           <h2 className="flex-shrink mx-8 text-lg font-bold text-gray-800 tracking-widest uppercase">
@@ -144,7 +144,7 @@ export default function ProductDetail() {
         </div>
 
         <div className="relative group">
-          {/* Nút điều hướng (Arrows) */}
+         
           <button className="absolute -left-10 top-1/2 -translate-y-1/2 w-10 h-10 
             border border-gray-200 rounded-full flex items-center justify-center bg-white shadow-sm hover:bg-gray-50 transition z-10">
             <span className="text-gray-400 text-xl">‹</span>
@@ -215,7 +215,7 @@ export default function ProductDetail() {
         <div className="border-b border-gray-200 mt-12"></div>
       </div>
 
-      <section className="w-full bg-white pt-0 pb-8"> {/* pb-20 để tạo khoảng cách với Footer */}
+      <section className="w-full bg-white pt-0 pb-8">
         <div className="max-w-7xl mx-auto px-16 py-12 bg-white">
           <h2 className="text-2xl font-bold text-gray-800 mb-8 uppercase tracking-tight">
             Đánh giá & Nhận xét

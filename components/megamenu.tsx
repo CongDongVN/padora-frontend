@@ -1,14 +1,16 @@
 "use client";
 
-type Props = {
-  children: React.ReactNode;
-};
-
-export default function MegaMenu({ children }: Props) {
+export default function MegaMenu({ children }: { children: React.ReactNode }) {
   return (
-    <div className="absolute left-0 top-full w-screen border border-gray-200 bg-white border-t z-50">
-      <div className="px-16 py-8"> 
-        {/* ❗ px-16 giống nav → thẳng hàng */}
+    <div 
+      className="fixed left-0 w-screen bg-white border-t border-gray-100 shadow-2xl z-[999]"
+      style={{ 
+        width: '100vw', 
+        left: '0',
+        right: '0'
+      }}
+    >
+      <div className="w-full py-12">
         {children}
       </div>
     </div>
