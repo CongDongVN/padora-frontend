@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import Link from "next/link"
@@ -133,7 +132,7 @@ export default function RegisterForm() {
                 className="flex items-center px-4 py-3 bg-white border border-gray-300
                           focus-within:bg-white focus-within:border-black transition"
               >
-              >
+
                 <input
                   type={showPassword ? "text" : "password"}
                   value={form.passwordHash}
@@ -161,7 +160,7 @@ export default function RegisterForm() {
               <button
                 onClick={handleRegister}
                 className="bg-black text-white py-3 mt-2 
-                           hover:bg-gray-800 transition duration-200 font-semibold"
+              hover:bg-gray-800 transition duration-200 font-semibold"
               >
                 ĐĂNG KÝ TÀI KHOẢN
               </button>
