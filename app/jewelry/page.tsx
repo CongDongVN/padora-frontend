@@ -5,9 +5,7 @@ import FilterSidebar from "@/components/FilterSidebar";
 import ProductCategory from "@/components/ProductCategory";
 import { products } from "../data/page";
 
-const list = products.filter(p =>
-  [1, 5, 9, 12].includes(p.id)
-);
+const list = products.filter((p) => [1, 5, 9, 12].includes(p.id));
 
 export default function CollectionPage() {
   return (

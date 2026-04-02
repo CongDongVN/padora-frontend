@@ -1,6 +1,10 @@
 import Link from "next/link";
 
-export default function LoggedOutMenu({ setOpenAuth }: { setOpenAuth: (val: boolean) => void }) {
+export default function LoggedOutMenu({
+  setOpenAuth,
+}: {
+  setOpenAuth: (val: boolean) => void;
+}) {
   return (
     <div className="absolute top-15 right-0 w-70 bg-white shadow-xl rounded-sm overflow-hidden z-50 animate-slideDown">
       <div className="p-5 flex flex-col gap-4">

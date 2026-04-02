@@ -1,5 +1,5 @@
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { relatedProducts } from "@/data/products";
 
 export default function ProductDetail() {
@@ -14,7 +14,6 @@ export default function ProductDetail() {
       <Header />
       <div className="px-16 py-10 bg-white">
         <div className="grid grid-cols-3 gap-10">
-
           {/* LEFT - IMAGE */}
           <div className="col-span-2 grid grid-cols-2 gap-6">
             {images.map((src, index) => (
@@ -22,14 +21,10 @@ export default function ProductDetail() {
                 key={index}
                 className="bg-gray-200 aspect-square flex items-center justify-center overflow-hidden"
               >
-                <img
-                  src={src}
-                  className="w-full h-full object-cover"
-                />
+                <img src={src} className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
-
 
           {/* RIGHT - INFO */}
           <div className="col-span-1">
@@ -37,9 +32,7 @@ export default function ProductDetail() {
               Charm Pandora Mạ Vàng 14K Tulip Hồng Phai, Khởi Đầu Nụ Tầm Xuân
             </h1>
 
-            <p className="text-xl mt-4 text-black font-medium">
-              2,590,000₫
-            </p>
+            <p className="text-xl mt-4 text-black font-medium">2,590,000₫</p>
 
             {/* BUTTON */}
             <div className="mt-6 space-y-4">
@@ -54,14 +47,19 @@ export default function ProductDetail() {
 
             <div className="mt-4 text-sm text-gray-600 space-y-2">
               <p>💖 Lưu vào danh mục yêu thích</p>
-              <p>🎁 Gói quà tặng <span className="underline cursor-pointer">Xem chi tiết</span></p>
+              <p>
+                🎁 Gói quà tặng{" "}
+                <span className="underline cursor-pointer">Xem chi tiết</span>
+              </p>
             </div>
 
             <div className="mt-6 text-sm text-gray-700">
               <p className="font-semibold mb-2">Ưu đãi cổng thanh toán</p>
               <ul className="list-disc ml-5 space-y-1">
                 <li>Giảm 10% tặng bạn mới.</li>
-                <li>Giảm đến 50K cho đơn từ 3 triệu và 100K cho đơn từ 10 triệu.</li>
+                <li>
+                  Giảm đến 50K cho đơn từ 3 triệu và 100K cho đơn từ 10 triệu.
+                </li>
                 <li>Lưu ý: Không áp dụng cho BST mới</li>
               </ul>
             </div>
@@ -73,16 +71,16 @@ export default function ProductDetail() {
               </h3>
 
               <p className="text-sm text-gray-600 leading-relaxed">
-                Sản phẩm được thiết kế tinh xảo với phong cách hiện đại,
-                mang lại vẻ đẹp thanh lịch và sang trọng. Đây là lựa chọn
-                hoàn hảo cho những dịp đặc biệt hoặc làm quà tặng ý nghĩa.
+                Sản phẩm được thiết kế tinh xảo với phong cách hiện đại, mang
+                lại vẻ đẹp thanh lịch và sang trọng. Đây là lựa chọn hoàn hảo
+                cho những dịp đặc biệt hoặc làm quà tặng ý nghĩa.
               </p>
 
               <p className="text-sm text-gray-600 mt-4">
-                <span className="font-medium text-black">Mã sản phẩm:</span> 764352C01
+                <span className="font-medium text-black">Mã sản phẩm:</span>{" "}
+                764352C01
               </p>
             </div>
-
           </div>
         </div>
       </div>
@@ -94,13 +92,9 @@ export default function ProductDetail() {
         </h2>
 
         <div className="flex gap-6 overflow-x-auto">
-
           {/* ITEM */}
           {relatedProducts.map((item) => (
-            <div
-              key={item.id}
-              className="min-w-[220px] cursor-pointer group"
-            >
+            <div key={item.id} className="min-w-[220px] cursor-pointer group">
               {/* IMAGE */}
               <div className="bg-gray-200 aspect-square flex items-center justify-center overflow-hidden">
                 <img
@@ -109,16 +103,11 @@ export default function ProductDetail() {
                 />
               </div>
 
-              <p className="text-sm mt-3 line-clamp-2">
-                {item.name}
-              </p>
+              <p className="text-sm mt-3 line-clamp-2">{item.name}</p>
 
-              <p className="text-sm font-medium mt-1">
-                {item.price}
-              </p>
+              <p className="text-sm font-medium mt-1">{item.price}</p>
             </div>
           ))}
-
         </div>
       </div>
       <Footer />

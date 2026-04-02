@@ -5,7 +5,7 @@ import FilterSidebar from "@/components/FilterSidebar";
 import ProductCategory from "@/components/ProductCategory";
 import { products } from "@/app/data/page";
 
-const list = products.filter(p => p.category === "charm");
+const list = products.filter((p) => p.category === "charm");
 
 export default function CollectionPage() {
   return (

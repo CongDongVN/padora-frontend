@@ -11,7 +11,10 @@ export default function UserMenu() {
   const userRef = useRef(null);
 
   return (
-    <div ref={userRef} className="relative group flex flex-col items-center cursor-pointer">
+    <div
+      ref={userRef}
+      className="relative group flex flex-col items-center cursor-pointer"
+    >
       <FiUser
         onClick={() => {
           if (user) {
@@ -28,7 +31,9 @@ export default function UserMenu() {
 
       {/* Gọi 2 trang đã tách */}
       {!user && openAuth && <LoggedOutMenu setOpenAuth={setOpenAuth} />}
-      {user && openUser && <LoggedInMenu setUser={setUser} setOpenUser={setOpenUser} />}
+      {user && openUser && (
+        <LoggedInMenu setUser={setUser} setOpenUser={setOpenUser} />
+      )}
     </div>
   );
 }

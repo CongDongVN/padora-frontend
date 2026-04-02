@@ -34,7 +34,6 @@ export default function Header() {
   const [openAuth, setOpenAuth] = useState(false);
   const [openUser, setOpenUser] = useState(false);
 
-  // GIỮ user state để kiểm tra login/logout
   const [user, setUser] = useState<any>(null);
 
   const userRef = useRef<HTMLDivElement>(null);

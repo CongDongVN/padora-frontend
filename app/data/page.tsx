@@ -36,7 +36,7 @@ export const products = [
     isNew: true,
   },
 
-{
+  {
     id: 5,
     name: "Vòng tay Pandora",
     price: 3990000,
@@ -44,9 +44,8 @@ export const products = [
     category: "vong-tay",
     type: "jewelry",
     isNew: true,
-  }
-
-  ,{
+  },
+  {
     id: 6,
     name: "Bông tai ngọc trai",
     price: 2990000,
@@ -54,8 +53,8 @@ export const products = [
     category: "bong-tai",
     type: "jewelry",
     isNew: false,
-  }
-  ,{
+  },
+  {
     id: 7,
     name: "Charm hình trái tim",
     price: 1590000,
@@ -63,8 +62,8 @@ export const products = [
     category: "charm",
     type: "jewelry",
     isNew: false,
-  }
-    ,{
+  },
+  {
     id: 8,
     name: "Dây chuyền mặt trăng",
     price: 2790000,
@@ -72,8 +71,8 @@ export const products = [
     category: "day-chuyen",
     type: "jewelry",
     isNew: true,
-  }
-    ,{
+  },
+  {
     id: 9,
     name: "Nhẫn vàng hồng",
     price: 4590000,
@@ -81,9 +80,8 @@ export const products = [
     category: "nhan",
     type: "jewelry",
     isNew: false,
-  }
-
-,{
+  },
+  {
     id: 10,
     name: "Vòng tay bạc",
     price: 1890000,
@@ -91,9 +89,8 @@ export const products = [
     category: "vong-tay",
     type: "jewelry",
     isNew: true,
-  }
-
-,{
+  },
+  {
     id: 11,
     name: "Charm Bạc Việt Nam",
     price: 2590000,
@@ -130,7 +127,7 @@ export const products = [
     isNew: true,
   },
 
-{
+  {
     id: 15,
     name: "Vòng tay Pandora",
     price: 3990000,
@@ -138,9 +135,8 @@ export const products = [
     category: "vong-tay",
     type: "jewelry",
     isNew: true,
-  }
-
-  ,{
+  },
+  {
     id: 16,
     name: "Bông tai ngọc trai",
     price: 2990000,
@@ -148,8 +144,8 @@ export const products = [
     category: "bong-tai",
     type: "jewelry",
     isNew: false,
-  }
-  ,{
+  },
+  {
     id: 17,
     name: "Charm hình trái tim",
     price: 1590000,
@@ -157,8 +153,8 @@ export const products = [
     category: "charm",
     type: "jewelry",
     isNew: false,
-  }
-    ,{
+  },
+  {
     id: 18,
     name: "Dây chuyền mặt trăng",
     price: 2790000,
@@ -166,8 +162,8 @@ export const products = [
     category: "day-chuyen",
     type: "jewelry",
     isNew: true,
-  }
-    ,{
+  },
+  {
     id: 19,
     name: "Nhẫn vàng hồng",
     price: 4590000,
@@ -175,9 +171,8 @@ export const products = [
     category: "nhan",
     type: "jewelry",
     isNew: false,
-  }
-
-,{
+  },
+  {
     id: 20,
     name: "Vòng tay bạc",
     price: 1890000,
@@ -185,8 +180,8 @@ export const products = [
     category: "vong-tay",
     type: "jewelry",
     isNew: true,
-  }
-  ,{
+  },
+  {
     id: 21,
     name: "Charm Bạc Việt Nam",
     price: 2590000,
@@ -223,7 +218,7 @@ export const products = [
     isNew: true,
   },
 
-{
+  {
     id: 25,
     name: "Vòng tay Pandora",
     price: 3990000,
@@ -231,9 +226,8 @@ export const products = [
     category: "vong-tay",
     type: "jewelry",
     isNew: true,
-  }
-
-  ,{
+  },
+  {
     id: 26,
     name: "Bông tai ngọc trai",
     price: 2990000,
@@ -241,8 +235,8 @@ export const products = [
     category: "bong-tai",
     type: "jewelry",
     isNew: false,
-  }
-  ,{
+  },
+  {
     id: 27,
     name: "Charm hình trái tim",
     price: 1590000,
@@ -250,8 +244,8 @@ export const products = [
     category: "charm",
     type: "jewelry",
     isNew: false,
-  }
-    ,{
+  },
+  {
     id: 28,
     name: "Dây chuyền mặt trăng",
     price: 2790000,
@@ -259,8 +253,8 @@ export const products = [
     category: "day-chuyen",
     type: "jewelry",
     isNew: true,
-  }
-    ,{
+  },
+  {
     id: 29,
     name: "Nhẫn vàng hồng",
     price: 4590000,
@@ -268,9 +262,8 @@ export const products = [
     category: "nhan",
     type: "jewelry",
     isNew: false,
-  }
-
-,{
+  },
+  {
     id: 30,
     name: "Vòng tay bạc",
     price: 1890000,
@@ -278,8 +271,8 @@ export const products = [
     category: "vong-tay",
     type: "jewelry",
     isNew: true,
-  }
-  ,{
+  },
+  {
     id: 31,
     name: "Charm Bạc Việt Nam",
     price: 2590000,
@@ -316,7 +309,7 @@ export const products = [
     isNew: true,
   },
 
-{
+  {
     id: 35,
     name: "Vòng tay Pandora",
     price: 3990000,
@@ -324,9 +317,8 @@ export const products = [
     category: "vong-tay",
     type: "jewelry",
     isNew: true,
-  }
-
-  ,{
+  },
+  {
     id: 36,
     name: "Bông tai ngọc trai",
     price: 2990000,
@@ -334,8 +326,8 @@ export const products = [
     category: "bong-tai",
     type: "jewelry",
     isNew: false,
-  }
-  ,{
+  },
+  {
     id: 37,
     name: "Charm hình trái tim",
     price: 1590000,
@@ -343,8 +335,8 @@ export const products = [
     category: "charm",
     type: "jewelry",
     isNew: false,
-  }
-    ,{
+  },
+  {
     id: 38,
     name: "Dây chuyền mặt trăng",
     price: 2790000,
@@ -352,8 +344,8 @@ export const products = [
     category: "day-chuyen",
     type: "jewelry",
     isNew: true,
-  }
-    ,{
+  },
+  {
     id: 39,
     name: "Nhẫn vàng hồng",
     price: 4590000,
@@ -361,9 +353,8 @@ export const products = [
     category: "nhan",
     type: "jewelry",
     isNew: false,
-  }
-
-,{
+  },
+  {
     id: 40,
     name: "Vòng tay bạc",
     price: 1890000,
@@ -371,9 +362,8 @@ export const products = [
     category: "vong-tay",
     type: "jewelry",
     isNew: true,
-  }
-
-,{
+  },
+  {
     id: 41,
     name: "Charm Bạc Việt Nam",
     price: 2590000,
@@ -410,7 +400,7 @@ export const products = [
     isNew: true,
   },
 
-{
+  {
     id: 45,
     name: "Vòng tay Pandora",
     price: 3990000,
@@ -418,9 +408,8 @@ export const products = [
     category: "vong-tay",
     type: "jewelry",
     isNew: true,
-  }
-
-  ,{
+  },
+  {
     id: 46,
     name: "Bông tai ngọc trai",
     price: 2990000,
@@ -428,8 +417,8 @@ export const products = [
     category: "bong-tai",
     type: "jewelry",
     isNew: false,
-  }
-  ,{
+  },
+  {
     id: 47,
     name: "Charm hình trái tim",
     price: 1590000,
@@ -437,8 +426,8 @@ export const products = [
     category: "charm",
     type: "jewelry",
     isNew: false,
-  }
-    ,{
+  },
+  {
     id: 48,
     name: "Dây chuyền mặt trăng",
     price: 2790000,
@@ -446,8 +435,8 @@ export const products = [
     category: "day-chuyen",
     type: "jewelry",
     isNew: true,
-  }
-    ,{
+  },
+  {
     id: 49,
     name: "Nhẫn vàng hồng",
     price: 4590000,
@@ -455,9 +444,8 @@ export const products = [
     category: "nhan",
     type: "jewelry",
     isNew: false,
-  }
-
-,{
+  },
+  {
     id: 50,
     name: "Vòng tay bạc",
     price: 1890000,
@@ -465,8 +453,8 @@ export const products = [
     category: "vong-tay",
     type: "jewelry",
     isNew: true,
-  }
-  ,{
+  },
+  {
     id: 51,
     name: "Charm Bạc Việt Nam",
     price: 2590000,
@@ -503,7 +491,7 @@ export const products = [
     isNew: true,
   },
 
-{
+  {
     id: 55,
     name: "Vòng tay Pandora",
     price: 3990000,
@@ -511,9 +499,8 @@ export const products = [
     category: "vong-tay",
     type: "jewelry",
     isNew: true,
-  }
-
-  ,{
+  },
+  {
     id: 56,
     name: "Bông tai ngọc trai",
     price: 2990000,
@@ -521,8 +508,8 @@ export const products = [
     category: "bong-tai",
     type: "jewelry",
     isNew: false,
-  }
-  ,{
+  },
+  {
     id: 57,
     name: "Charm hình trái tim",
     price: 1590000,
@@ -530,8 +517,8 @@ export const products = [
     category: "charm",
     type: "jewelry",
     isNew: false,
-  }
-    ,{
+  },
+  {
     id: 58,
     name: "Dây chuyền mặt trăng",
     price: 2790000,
@@ -539,8 +526,8 @@ export const products = [
     category: "day-chuyen",
     type: "jewelry",
     isNew: true,
-  }
-    ,{
+  },
+  {
     id: 59,
     name: "Nhẫn vàng hồng",
     price: 4590000,
@@ -548,9 +535,8 @@ export const products = [
     category: "nhan",
     type: "jewelry",
     isNew: false,
-  }
-
-,{
+  },
+  {
     id: 60,
     name: "Vòng tay bạc",
     price: 1890000,
@@ -558,8 +544,8 @@ export const products = [
     category: "vong-tay",
     type: "jewelry",
     isNew: true,
-  }
-  ,{
+  },
+  {
     id: 61,
     name: "Dây chuyền mặt trăng",
     price: 2790000,
@@ -567,8 +553,8 @@ export const products = [
     category: "day-chuyen",
     type: "jewelry",
     isNew: true,
-  }
-    ,{
+  },
+  {
     id: 62,
     name: "Nhẫn vàng hồng",
     price: 4590000,
@@ -576,9 +562,8 @@ export const products = [
     category: "nhan",
     type: "jewelry",
     isNew: false,
-  }
-
-,{
+  },
+  {
     id: 63,
     name: "Vòng tay bạc",
     price: 1890000,
@@ -586,5 +571,5 @@ export const products = [
     category: "vong-tay",
     type: "jewelry",
     isNew: true,
-  }
+  },
 ];
