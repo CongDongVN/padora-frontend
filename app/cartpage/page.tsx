@@ -120,7 +120,7 @@ export default function CartPage() {
                                 </div>
                                 <div className="mb-6 border-b border-gray-300 pb-6">
                                     <p className="text-[13px] font-bold mb-2 uppercase">Ghi chú đơn hàng</p>
-                                    <textarea rows="3" className="w-full border border-gray-300 p-3 text-[14px] focus:outline-none focus:border-black resize-none" placeholder="Nhập ghi chú cho đơn hàng của bạn..."></textarea>
+                                    <textarea rows={3} className="w-full border border-gray-300 p-3 text-[14px] focus:outline-none focus:border-black resize-none" placeholder="Nhập ghi chú cho đơn hàng của bạn..."></textarea>
                                 </div>
                                 <div className="flex justify-between items-baseline mb-6">
                                     <span className="text-[18px] font-bold uppercase">Tổng thanh toán:</span>
