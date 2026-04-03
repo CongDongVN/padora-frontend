@@ -32,7 +32,7 @@ export default function LoginPage() {
             <div className="w-1/2 pl-4">
               <Link href="/register">
                 <button className="w-full text-center pb-3 
-            border-b-2 border-gray-300 text-gray-400 cursor-pointer hover:opacity-70 transition">
+                border-b-2 border-gray-300 text-gray-400 cursor-pointer hover:opacity-70 transition">
                   ĐĂNG KÝ
                 </button>
               </Link>
