@@ -49,6 +49,13 @@ export default function Header() {
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
+  const menuItems = [
+    { icon: <FiUser />, label: "THÔNG TIN TÀI KHOẢN" },
+    { icon: <FiClock />, label: "LỊCH SỬ MUA HÀNG" },
+    { icon: <FiMapPin />, label: "ĐỊA CHỈ GIAO HÀNG" },
+    { icon: <FiStar />, label: "HẠNG THÀNH VIÊN" },
+    { icon: <FiGift />, label: "CHƯƠNG TRÌNH KHUYẾN MÃI" },
+  ];
 
   return (
     <header className="fixed top-0 z-50 border-b bg-white w-full">
@@ -104,40 +111,36 @@ export default function Header() {
               className="relative group flex flex-col items-center cursor-pointer"
             >
               <FiUser
-                onClick={() => setOpenAuth(!openAuth)}
+                onClick={() => setOpenUser(!openUser)}
                 className="transition group-hover:text-[#ff93a0] text-[20px]"
               />
               <span className="w-5 h-0.5 bg-transparent group-hover:bg-[#ff93a0] mt-1 transition"></span>
 
-              {openAuth && (
-                <div className="absolute top-15 right-0 w-70 bg-white shadow-xl rounded-sm overflow-hidden z-50 animate-slideDown">
-                  <div className="p-5 flex flex-col gap-4">
-                    <Link
-                      href="/login"
-                      onClick={() => setOpenAuth(false)}
-                      className="block text-center w-full bg-black text-white py-3.5 rounded-sm text-[12px] font-semibold tracking-wider hover:bg-gray-800 transition"
-                    >
-                      ĐĂNG NHẬP
-                    </Link>
-
-                    <Link
-                      href="/register"
-                      onClick={() => setOpenAuth(false)}
-                      className="block text-center w-full bg-black text-white py-3.5 rounded-sm text-[12px] font-semibold tracking-wider hover:bg-gray-800 transition"
-                    >
-                      ĐĂNG KÝ
-                    </Link>
-
-                    <img
-                      src="/img/hinh_log_in.png"
-                      className="w-full h-50 object-cover rounded-sm"
-                      alt="Login"
-                    />
-
-                    <p className="text-center text-xs font-semibold text-black leading-relaxed px-2">
-                      Đăng ký thành viên PANDORA ngay <br /> để tận hưởng ưu đãi
-                      độc quyền online.
-                    </p>
+              {openUser && (
+                <div className="absolute top-9 mt-6 right-0 w-65 bg-white shadow-xl rounded-sm z-50 animate-slideDown">
+                  <div className="py-2 text-[13px]">
+                    <div className="flex flex-col">
+                      {menuItems.map((item, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center gap-3 px-4 py-2.5 font-semibold text-gray-800 hover:bg-gray-50 cursor-pointer leading-none"
+                        >
+                          <span className="text-[17px] shrink-0 text-gray-800">
+                            {item.icon}
+                          </span>
+                          <span>{item.label}</span>
+                        </div>
+                      ))}
+                      <div
+                        className="flex items-center gap-3 px-4 py-2.5 font-semibold text-gray-800 hover:bg-gray-50 cursor-pointer leading-none border-t"
+                        onClick={() => {
+                          /* Logic Logout ở đây */
+                        }}
+                      >
+                        <FiLogOut className="text-[17px] shrink-0 text-gray-800" />
+                        <span>ĐĂNG XUẤT</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}
