@@ -75,7 +75,11 @@ export default function Header() {
 
       {/* Main Header */}
       <div className="w-full px-16 flex items-center justify-between py-5">
-        <div className="text-3xl font-bold tracking-widest text-black">PANDORA</div>
+        <Link href="http://localhost:3000" className="flex items-center gap-2">
+          <div className="text-3xl font-bold tracking-widest text-black">
+            PANDORA
+          </div>
+        </Link>
 
         <div className="flex items-center gap-8">
           {/* Search Bar */}
@@ -132,14 +136,14 @@ export default function Header() {
       {/* Mega Menu Wrapper */}
       {open === root.slug && root.children.length  > 0 && ( <div className="fixed top-[100px] left-0 w-full z-[999]">
 <MegaMenu>
-      <div className="w-full px-16 flex items-start justify-start gap-x-20 py-8"> 
+      <div className="w-full px-16 flex items-start justify-start gap-x-8 py-8"> 
         {/* Thêm py-8 ở đây để tạo khoảng trống bên trong menu thay vì bên ngoài */}
         {root.children.map((sub: any) => (
-          <div key={sub.id} className="flex flex-col w-[250px] shrink-0">
+          <div key={sub.id} className="flex flex-col w-[145px] shrink-0">
             <h3 className="font-bold text-[13px] mb-6 text-black tracking-widest uppercase">
               {sub.name}
             </h3>
-            <ul className="flex flex-col gap-y-3.5">
+            <ul className="flex flex-col gap-y-1">
               {sub.children.map((item: any) => (
                 <li key={item.id}>
                   <Link
